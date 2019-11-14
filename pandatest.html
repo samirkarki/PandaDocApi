@@ -1,0 +1,162 @@
+<!doctype html>
+<html>
+<body>
+Upload Document 
+<br>
+<input type="file" name="file" id="pandadoc-file" />
+<input type="text" id="email" placeholder="recipient email"/>
+<input type="submit" id="upload-pandadoc" value="Upload">
+<br><br>
+Send document: 
+<br>
+Document Id: 
+<input type="text" id="document-id" placeholder="document id"/> 
+<input type="button" id="document-send" value="Send">
+<br><br>
+Send document: 
+<br>
+Share to email:
+<input type="text" id="share-email" title="email"/>
+<input type="button" id="document-share" value="Share">
+<br><br>
+
+Test Link: 
+<br>
+Session Id: <input type="text" id="session-id" placeholder="session id"/> 
+<input type="button" id="session-send" value="Load Iframe">
+<br>
+<iframe id="pandadoc-iframe" width="800" height="800"></iframe>
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" ></script>
+<script>
+var eventMethod = window.addEventListener ? 'addEventListener' : 'attachEvent',
+      messageEvent = eventMethod === 'attachEvent' ? 'onmessage' : 'message';
+
+    window[eventMethod](messageEvent,function(e) {
+    if (e && e.data) {
+      try {
+        var message = JSON.parse(e.data);
+        if (message && message.event) {
+          console.log(message.event, message.data);
+          }
+      } catch(e) {
+      console.log(e);
+      }
+    }
+  }, false);
+
+</script>
+    <script>
+        $(document).ready(function () {
+            $('#upload-pandadoc').click(function () {
+                uploadPandaDoc();
+            });
+			
+			$('#document-send').click(function () {
+                sendDocument($('#document-id').val());
+            });
+			
+			$('#document-share').click(function () {
+                shareDocument($('#document-id').val(), $('#share-email').val());
+            });
+			
+			$('#session-send').click(function () {
+                testSharableLink($('#session-id').val());
+            });
+			
+        });
+		
+		
+
+        function uploadPandaDoc() {
+
+            var form = new FormData();
+            form.append("file", $('#pandadoc-file')[0].files[0]);
+            form.append("data", "{  \n    \"name\": \"Sample Document from PDF with Form Fields\",\n    \"recipients\": [  \n        {  \n            \"email\": \"athapa@exevision.com\",\n            \"first_name\": \"Jane\",\n            \"last_name\": \"Roe\",\n            \"role\": \"user\"\n        }\n    ],\n    \"fields\": {  \n        \"userName\": {  \n            \"value\": \"Jane\",\n            \"role\": \"user\"\n        },\n        \"homeAddress\": {\n            \"value\": \"\",\n            \"role\": \"user\"\n        },\n        \"like\": {  \n            \"value\": true,\n            \"role\": \"user\"\n        },\n        \"signature\": {  \n            \"value\": \"\",\n            \"role\": \"user\"\n        }\n    },\n    \"metadata\": {\n        \"salesforce.opportunity_id\": \"123456\",\n        \"my_favorite_pet\": \"Panda\"\n    },\n    \"tags\": [\n        \"created_via_api\",\n        \"test_document\"\n\t], \n    \"parse_form_fields\": true\n}");
+
+            var settings = {
+                "async": true,
+                "crossDomain": true,
+                "url": "https://api.pandadoc.com/public/v1/documents",
+                "method": "POST",
+                "headers": {
+                    "Authorization": "API-Key c6caae24740bb7bfffc0895f27bbf1ca7fe6bbe9",
+                    "Content-Type": "multipart/form-data",
+                    "cache-control": "no-cache"
+                },
+                "processData": false,
+                "contentType": false,
+                "mimeType": "multipart/form-data",
+                "data": form
+            }
+
+            $.ajax(settings).done(function (response) {
+                console.log(response);
+            });
+        }
+
+        function sendDocument(documentId) {
+            var settings = {
+                "async": true,
+                "crossDomain": true,
+                "url": "https://api.pandadoc.com/public/v1/documents/" + documentId + "/send",
+                "method": "POST",
+                "headers": {
+                    "Authorization": "API-Key c6caae24740bb7bfffc0895f27bbf1ca7fe6bbe9",
+                    "Content-Type": "application/json",
+                    "cache-control": "no-cache",
+                    "Postman-Token": "77fac7fe-eb2d-4fd5-b7ef-18a0866661d1"
+                },
+                "processData": false,
+                "data": "{\n    \"message\": \"Hello! This document was sent from the PandaDoc API.\",\n    \"silent\": true\n}"
+            }
+
+            $.ajax(settings).done(function (response) {
+                console.log(response);
+            });
+        }
+
+        function shareDocument(documentId, shareEmail) {
+            var settings = {
+                "async": true,
+                "crossDomain": true,
+                "url": "https://api.pandadoc.com/public/v1/documents/" + documentId + "/session",
+                "method": "POST",
+                "headers": {
+                    "Authorization": "API-Key c6caae24740bb7bfffc0895f27bbf1ca7fe6bbe9",
+                    "Content-Type": "application/json",
+                    "cache-control": "no-cache",
+                    "Postman-Token": "ddec7d38-1e0d-483f-88e0-d3aa4d715b1f"
+                },
+                "processData": false,
+                "data": "{\n    \"recipient\": \""+shareEmail+"\",\n    \"lifetime\": 900\n}"
+            }
+
+            $.ajax(settings).done(function (response) {
+                console.log(response);
+				$('#session-id').val(response.id);
+            });
+        }
+
+        function testSharableLink(sessionId) {
+            var settings = {
+                "async": true,
+                "crossDomain": true,
+                "url": "https://app.pandadoc.com/s/" + sessionId,
+                "method": "GET",
+                "headers": {
+                    "cache-control": "no-cache",
+                    "Postman-Token": "ee57ac25-edbb-4e9a-8376-853cf63c1d2d"
+                }
+            }
+
+            $.ajax(settings).done(function (response) {
+                console.log(response);
+            });
+			
+			$('#pandadoc-iframe').attr('src','https://app.pandadoc.com/s/'+sessionId);
+        }
+
+    </script>
+</body>
+</html>
