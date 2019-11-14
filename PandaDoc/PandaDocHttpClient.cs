@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Net.Http;
 using System.Net.Http.Formatting;
 using System.Threading.Tasks;
@@ -118,11 +119,13 @@ namespace PandaDoc
 
         public async Task<PandaDocHttpResponse<CreateDocumentResponse>> CreateDocument(CreateDocumentRequest request)
         {
-            HttpContent httpContent = new ObjectContent<CreateDocumentRequest>(request, JsonFormatter);
-
-            HttpResponseMessage httpResponse = await httpClient.PostAsync(settings.ApiUri + "public/v1/documents", httpContent);
-            var data = new MultipartFormDataContent();
-            //data.Add()
+            //HttpContent httpContent = new ObjectContent<CreateDocumentRequest>(request, JsonFormatter);
+            var formContent = new MultipartFormDataContent("7MA4YWxkTrZu0gW");
+            Stream fileStream = System.IO.File.OpenRead(request.File);
+            //formContent.Headers.Add("Content-Type", "application/pdf");
+            formContent.Add(new StreamContent(fileStream), "file", "test.pdf");
+            formContent.Add(new ObjectContent<CreateDocumentRequest>(request, JsonFormatter), "data");
+            HttpResponseMessage httpResponse = await httpClient.PostAsync(settings.ApiUri + "public/v1/documents", formContent);
             PandaDocHttpResponse<CreateDocumentResponse> response = await httpResponse.ToPandaDocResponseAsync<CreateDocumentResponse>();
 
             return response;

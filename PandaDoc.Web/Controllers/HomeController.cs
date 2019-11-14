@@ -15,7 +15,7 @@ namespace PandaDoc.Web.Controllers
         protected readonly string SampleDocUrl = "https://cdn2.hubspot.net/hubfs/2127247/public-templates/SamplePandaDocPdf_FieldTags.pdf";
         [HttpGet]
         [Route("~/api/documents")]
-        public async Task<IList<ShareDocumentResponse>> Documents()
+        public async Task<IList<ShareDocumentResponse>> Documents(string DocumentId)
         {
             var sharedDocuments = new List<ShareDocumentResponse>();
             using (var client = SetApiKey())
@@ -27,7 +27,7 @@ namespace PandaDoc.Web.Controllers
                 {
                     Message = "Please sign this document"
                 };
-                var sendDocResponse = await client.SendDocument(response.Value.Uuid, sendRequest);
+                var sendDocResponse = await client.SendDocument(response.Value?.Uuid ?? DocumentId, sendRequest);
                 foreach (var recipient in request.Recipients)
                 {
                     var shareRequest = new ShareDocumentRequest
@@ -49,6 +49,7 @@ namespace PandaDoc.Web.Controllers
             {
                 Name = "Sample Document",
                 Url = SampleDocUrl,
+                File = "C:\\Users\\i81211\\Desktop\\sample.pdf",
                 Recipients = new[]
                 {
                     new Recipient
