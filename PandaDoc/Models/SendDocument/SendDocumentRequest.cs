@@ -1,5 +1,6 @@
 ﻿using System;
 using Newtonsoft.Json;
+using PandaDoc.Models.CreateDocument;
 using PandaDoc.Models.GetDocument;
 
 namespace PandaDoc.Models.SendDocument

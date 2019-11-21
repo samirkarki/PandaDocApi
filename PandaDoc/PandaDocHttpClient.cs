@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using System.IO;
 using System.Net.Http;
 using System.Net.Http.Formatting;
+using System.Net.Http.Headers;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 using PandaDoc.Models.CreateDocument;
 using PandaDoc.Models.GetDocument;
 using PandaDoc.Models.GetDocuments;
 using PandaDoc.Models.SendDocument;
+using RestSharp;
 
 namespace PandaDoc
 {
@@ -117,24 +120,31 @@ namespace PandaDoc
             return response;
         }
 
-        public async Task<PandaDocHttpResponse<CreateDocumentResponse>> CreateDocument(CreateDocumentRequest request)
+        public async Task<CreateDocumentResponse> CreateDocument(string filePath, CreateDocumentRequest document)
         {
-            //HttpContent httpContent = new ObjectContent<CreateDocumentRequest>(request, JsonFormatter);
-            var formContent = new MultipartFormDataContent("7MA4YWxkTrZu0gW");
-            Stream fileStream = System.IO.File.OpenRead(request.File);
-            //formContent.Headers.Add("Content-Type", "application/pdf");
-            formContent.Add(new StreamContent(fileStream), "file", "test.pdf");
-            formContent.Add(new ObjectContent<CreateDocumentRequest>(request, JsonFormatter), "data");
-            HttpResponseMessage httpResponse = await httpClient.PostAsync(settings.ApiUri + "public/v1/documents", formContent);
-            PandaDocHttpResponse<CreateDocumentResponse> response = await httpResponse.ToPandaDocResponseAsync<CreateDocumentResponse>();
+            var client = new RestClient("https://api.pandadoc.com/public/v1/documents");
+            var request = new RestRequest(Method.POST);
+            request.AddHeader("Host", "api.pandadoc.com");
+            request.AddHeader("Accept", "*/*");
+            request.AddHeader("Content-Type", "multipart/form-data");
+            request.AddHeader("Authorization", "API-Key c6caae24740bb7bfffc0895f27bbf1ca7fe6bbe9");
+            request.AddHeader("content-type", "multipart/form-data");
 
-            return response;
+            byte[] fileContent = File.ReadAllBytes("D:\\panda.pdf");
+            request.AddFileBytes("file", fileContent, "panda.pdf", "application/pdf");
+            var json = JsonConvert.SerializeObject(document);
+            request.AddParameter("data", json);
+            request.AlwaysMultipartFormData = true;
+            IRestResponse response = client.Execute(request);
+            if (response.StatusCode == System.Net.HttpStatusCode.Created) {
+                return  JsonConvert.DeserializeObject<CreateDocumentResponse>(response.Content);
+            }
+            return new CreateDocumentResponse();
         }
 
         public async Task<PandaDocHttpResponse<GetDocumentResponse>> GetDocument(string uuid)
         {
-            HttpResponseMessage httpResponse = await httpClient.GetAsync(settings.ApiUri + "public/v1/documents/" + uuid);
-
+            var httpResponse = await httpClient.GetAsync(settings.ApiUri + "public/v1/documents/" + uuid);
             PandaDocHttpResponse<GetDocumentResponse> response = await httpResponse.ToPandaDocResponseAsync<GetDocumentResponse>();
 
             return response;
@@ -169,6 +179,41 @@ namespace PandaDoc
             PandaDocHttpResponse response = await httpResponse.ToPandaDocResponseAsync();
 
             return response;
+        }
+    }
+
+    public static class MultiPartFormDataContentExtensions
+    {
+        public static void Add(this MultipartFormDataContent form, HttpContent content, object formValues)
+        {
+            Add(form, content, formValues);
+        }
+
+        public static void Add(this MultipartFormDataContent form, HttpContent content, string name, object formValues)
+        {
+            Add(form, content, formValues, name: name);
+        }
+
+        public static void Add(this MultipartFormDataContent form, HttpContent content, string name, string fileName, object formValues)
+        {
+            Add(form, content, formValues, name: name, fileName: fileName);
+        }
+
+        private static void Add(this MultipartFormDataContent form, HttpContent content, object formValues, string name = null, string fileName = null)
+        {
+            var header = new ContentDispositionHeaderValue("form-data");
+            header.Name = name;
+            header.FileName = fileName;
+            header.FileNameStar = fileName;
+
+            //var headerParameters = new Dictionary<string, string>(formValues);
+            //foreach (var parameter in headerParameters)
+            //{
+            //    header.Parameters.Add(new NameValueHeaderValue(parameter.Key, parameter.Value.ToString()));
+            //}
+
+            content.Headers.ContentDisposition = header;
+            form.Add(content);
         }
     }
 }

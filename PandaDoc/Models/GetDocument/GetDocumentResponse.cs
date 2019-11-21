@@ -1,5 +1,6 @@
 ﻿using System;
 using Newtonsoft.Json;
+using PandaDoc.Models.CreateDocument;
 
 namespace PandaDoc.Models.GetDocument
 {
@@ -61,21 +62,21 @@ namespace PandaDoc.Models.GetDocument
         }
     }
 
-    public class Recipient
-    {
-        [JsonProperty("email")]
-        public string Email { get; set; }
+    //public class Recipient
+    //{
+    //    [JsonProperty("email")]
+    //    public string Email { get; set; }
 
-        [JsonProperty("first_name")]
-        public string FirstName { get; set; }
+    //    [JsonProperty("first_name")]
+    //    public string FirstName { get; set; }
 
-        [JsonProperty("last_name")]
-        public string LastName { get; set; }
+    //    [JsonProperty("last_name")]
+    //    public string LastName { get; set; }
 
-        [JsonProperty("recipient_type")]
-        public string RecipientType { get; set; }
+    //    [JsonProperty("recipient_type")]
+    //    public string RecipientType { get; set; }
 
-        [JsonProperty("has_completed")]
-        public bool HasCompleted { get; set; }
-    }
+    //    [JsonProperty("has_completed")]
+    //    public bool HasCompleted { get; set; }
+    //}
 }

@@ -16,6 +16,12 @@ namespace PandaDoc.Models.CreateDocument
 
         [JsonProperty("role")]
         public string Role { get; set; }
+
+        [JsonProperty("recipient_type")]
+        public string RecipientType { get; set; }
+
+        [JsonProperty("has_completed")]
+        public bool HasCompleted { get; set; }
     }
 
     public class Field
@@ -31,9 +37,6 @@ namespace PandaDoc.Models.CreateDocument
 
         [JsonProperty("url")]
         public string Url { get; set; }
-
-        [JsonProperty("file")]
-        public string File { get; set; }
 
         [JsonProperty("recipients")]
         public Recipient[] Recipients { get; set; }
