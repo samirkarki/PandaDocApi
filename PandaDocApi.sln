@@ -1,11 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.421
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29102.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PandaDoc", "PandaDoc\PandaDoc.csproj", "{4A812E8A-F401-45C7-BEB7-5F1184A49D24}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PandaDoc.Api", "PandaDoc.Api\PandaDoc.Api.csproj", "{ED107934-4FC4-45D8-8D83-49D3906B63B3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{C0069804-5F49-4DF5-8CC4-8BEE130A0BCF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityServer", "src\IdentityServer\IdentityServer.csproj", "{82F89CB4-53BF-4E85-B0B7-0F3EAA3DCCDE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Esign.Api", "Esign.Api\Esign.Api.csproj", "{BB6C319E-D82F-46BE-A51F-45E7E7A6E8D7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "Client\Client.csproj", "{073564AC-FE18-4613-9666-F52A088285BF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,9 +29,24 @@ Global
 		{ED107934-4FC4-45D8-8D83-49D3906B63B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ED107934-4FC4-45D8-8D83-49D3906B63B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ED107934-4FC4-45D8-8D83-49D3906B63B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82F89CB4-53BF-4E85-B0B7-0F3EAA3DCCDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82F89CB4-53BF-4E85-B0B7-0F3EAA3DCCDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82F89CB4-53BF-4E85-B0B7-0F3EAA3DCCDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82F89CB4-53BF-4E85-B0B7-0F3EAA3DCCDE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB6C319E-D82F-46BE-A51F-45E7E7A6E8D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB6C319E-D82F-46BE-A51F-45E7E7A6E8D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB6C319E-D82F-46BE-A51F-45E7E7A6E8D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB6C319E-D82F-46BE-A51F-45E7E7A6E8D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{073564AC-FE18-4613-9666-F52A088285BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{073564AC-FE18-4613-9666-F52A088285BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{073564AC-FE18-4613-9666-F52A088285BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{073564AC-FE18-4613-9666-F52A088285BF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{82F89CB4-53BF-4E85-B0B7-0F3EAA3DCCDE} = {C0069804-5F49-4DF5-8CC4-8BEE130A0BCF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AA2D76B8-8DC8-4908-9300-B27B75425455}
