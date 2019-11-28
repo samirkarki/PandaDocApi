@@ -13,13 +13,22 @@ namespace Client {
     public partial class Home {
         
         /// <summary>
-        /// div control.
+        /// identity control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl div;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl identity;
+        
+        /// <summary>
+        /// apiresult control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl apiresult;
         
         /// <summary>
         /// form1 control.

@@ -7,14 +7,21 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Esign.Api.Controllers
 {
-    [Route("identity")]
-    [Authorize]
-    public class IdentityController : ControllerBase
+    public class IdentityController : Controller
     {
+        [Authorize]
         [HttpGet]
+        [Route("identity")]
         public IActionResult Get()
         {
             return new JsonResult(from c in User.Claims select new { c.Type, c.Value });
+        }
+
+        [HttpGet]
+        [Route("test")]
+        public IActionResult Test()
+        {
+            return new JsonResult("test");
         }
     }
 }

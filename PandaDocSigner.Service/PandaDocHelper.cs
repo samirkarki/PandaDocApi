@@ -1,20 +1,13 @@
-﻿using PandaDoc.Models.CreateDocument;
-using PandaDoc.Models.GetDocument;
-using PandaDoc.Models.SendDocument;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
-using System.Threading.Tasks;
-using System.Web;
-using System.Web.Http;
+﻿using PandaDocSigner.Models.CreateDocument;
+using PandaDocSigner.Models.GetDocument;
+using PandaDocSigner.Models.SendDocument;
 
-namespace PandaDoc
+namespace PandaDocSignerSigner.Service
 {
-    public class PandaDocHelper
+    public class PandaDocSignerHelper
     {
-        protected readonly string SampleDocUrl = "https://cdn2.hubspot.net/hubfs/2127247/public-templates/SamplePandaDocPdf_FieldTags.pdf";
-        public async Task<PandaDocHttpResponse<GetDocumentResponse>> CreateDocument(byte[] fileContent, CreateDocumentRequest request)
+        protected readonly string SampleDocUrl = "https://cdn2.hubspot.net/hubfs/2127247/public-templates/SamplePandaDocSignerPdf_FieldTags.pdf";
+        public async Task<PandaDocSignerHttpResponse<GetDocumentResponse>> CreateDocument(string filePath, CreateDocumentRequest request)
         {
             var sharedDocuments = new List<ShareDocumentResponse>();
             using (var client = SetApiKey())
@@ -22,7 +15,7 @@ namespace PandaDoc
                 if (request == null)
                     request = CreateDocumentRequest();
 
-                var response = await client.CreateDocument(fileContent, request);
+                var response = await client.CreateDocument(filePath, request);
                 if (!string.IsNullOrEmpty(response.Uuid))
                 {
                     var sendRequest = new SendDocumentRequest
@@ -36,10 +29,22 @@ namespace PandaDoc
                 }
                 else
                     return null;
+                //foreach (var recipient in request.Recipients)
+                //{
+                //    var shareRequest = new ShareDocumentRequest
+                //    {
+                //        Recipient = recipient.Email,
+                //        LifeTime = 90000
+                //    };
+                //    var shareDocResponse = await client.ShareDocument(response.Uuid, shareRequest);
+                //    shareDocResponse.Value.Recipient = recipient.Email;
+                //    sharedDocuments.Add(shareDocResponse.Value);
+                //}
             }
+            // return sharedDocuments;
         }
 
-        public async Task<PandaDocHttpResponse<ShareDocumentResponse>> ShareDocument(string documentId, string recipientEmail)
+        public async Task<PandaDocSignerHttpResponse<ShareDocumentResponse>> ShareDocument(string documentId, string recipientEmail)
         {
             var shareRequest = new ShareDocumentRequest
             {
@@ -52,7 +57,7 @@ namespace PandaDoc
             }
         }
 
-        public async Task<PandaDocHttpResponse<PandaDoc.Models.GetDocuments.GetDocumentsResponse>> GetAllDocuments()
+        public async Task<PandaDocSignerHttpResponse<PandaDocSigner.Models.GetDocuments.GetDocumentsResponse>> GetAllDocuments()
         {
             using (var client = SetApiKey())
             {
@@ -61,7 +66,7 @@ namespace PandaDoc
             }
         }
 
-        public async Task<PandaDocHttpResponse<PandaDoc.Models.GetDocument.GetDocumentResponse>> GetDocument(string documentId)
+        public async Task<PandaDocSignerHttpResponse<PandaDocSigner.Models.GetDocument.GetDocumentResponse>> GetDocument(string documentId)
         {
             using (var client = SetApiKey())
             {
@@ -100,12 +105,12 @@ namespace PandaDoc
             };
         }
 
-        protected PandaDocHttpClient SetApiKey()
+        protected PandaDocSignerHttpClient SetApiKey()
         {
-            var settings = new PandaDocHttpClientSettings();
-            var client = new PandaDocHttpClient(settings);
+            var settings = new PandaDocSignerHttpClientSettings();
+            var client = new PandaDocSignerHttpClient(settings);
 
-            var bearerToken = new PandaDocBearerToken { ApiKey = "c6caae24740bb7bfffc0895f27bbf1ca7fe6bbe9" };
+            var bearerToken = new PandaDocSignerBearerToken { ApiKey = "c6caae24740bb7bfffc0895f27bbf1ca7fe6bbe9" };
             client.SetBearerToken(bearerToken);
 
             return client;

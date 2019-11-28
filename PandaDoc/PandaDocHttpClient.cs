@@ -120,7 +120,7 @@ namespace PandaDoc
             return response;
         }
 
-        public async Task<CreateDocumentResponse> CreateDocument(string filePath, CreateDocumentRequest document)
+        public async Task<CreateDocumentResponse> CreateDocument(byte[] fileContent, CreateDocumentRequest document)
         {
             var client = new RestClient("https://api.pandadoc.com/public/v1/documents");
             var request = new RestRequest(Method.POST);
@@ -130,7 +130,6 @@ namespace PandaDoc
             request.AddHeader("Authorization", "API-Key c6caae24740bb7bfffc0895f27bbf1ca7fe6bbe9");
             request.AddHeader("content-type", "multipart/form-data");
 
-            byte[] fileContent = File.ReadAllBytes("D:\\panda.pdf");
             request.AddFileBytes("file", fileContent, "panda.pdf", "application/pdf");
             var json = JsonConvert.SerializeObject(document);
             request.AddParameter("data", json);

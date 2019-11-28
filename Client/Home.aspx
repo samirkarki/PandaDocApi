@@ -7,7 +7,8 @@
     <title></title>
 </head>
 <body>
-    <div id="div" runat="server"></div>
+    <div id="identity" runat="server"></div>
+    <div id="apiresult" runat="server"></div>
     <form id="form1" runat="server">
         <div>
         </div>

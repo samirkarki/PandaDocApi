@@ -1,8 +1,10 @@
 ﻿using IdentityModel.Client;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -13,11 +15,13 @@ namespace Client
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            // discover endpoints from metadata
             var client = new HttpClient();
-            var disco = client.GetDiscoveryDocumentAsync("http://localhost:5001").Result;
+
+            var disco = client.GetDiscoveryDocumentAsync("http://localhost:5000").Result;
             if (disco.IsError)
             {
-            div.InnerText = disco.Error;
+                identity.InnerText = disco.Error;
                 return;
             }
 
@@ -25,19 +29,36 @@ namespace Client
             var tokenResponse = client.RequestClientCredentialsTokenAsync(new ClientCredentialsTokenRequest
             {
                 Address = disco.TokenEndpoint,
-
                 ClientId = "ipd",
                 ClientSecret = "secret",
+
                 Scope = "esign"
             }).Result;
 
             if (tokenResponse.IsError)
             {
-                Console.WriteLine(tokenResponse.Error);
+                identity.InnerText = tokenResponse.Error;
                 return;
             }
 
-            div.InnerText = tokenResponse.Json.ToString();
+            identity.InnerText = tokenResponse.Json.ToString();
+            Console.WriteLine("\n\n");
+
+            // call api
+            var apiClient = new HttpClient();
+            apiClient.SetBearerToken(tokenResponse.AccessToken);
+
+            var response = apiClient.GetAsync("https://localhost:44307/identity").Result;
+            if (!response.IsSuccessStatusCode)
+            {
+                apiresult.InnerText = response.ToString();
+            }
+            else
+            {
+                var content = response.Content.ReadAsStringAsync().Result;
+                apiresult.InnerText = content;
+            }
+
         }
     }
 }

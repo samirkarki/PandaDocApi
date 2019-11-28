@@ -1,54 +1,55 @@
-﻿using PandaDoc.Models.CreateDocument;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using PandaDoc;
+using PandaDoc.Models.CreateDocument;
 using PandaDoc.Models.GetDocument;
 using PandaDoc.Models.SendDocument;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Net.Http;
 using System.Threading.Tasks;
-using System.Web;
-using System.Web.Http;
 
-namespace PandaDoc.Api.Controllers
+namespace Esign.Api.Controllers
 {
-    public class PandaController : ApiController
+    [Authorize]
+    public class PandaController : Controller
     {
         protected readonly string SampleDocUrl = "https://cdn2.hubspot.net/hubfs/2127247/public-templates/SamplePandaDocPdf_FieldTags.pdf";
 
         [HttpGet]
         [Route("~/api/documents")]
-        public async Task<Models.GetDocuments.GetDocumentsResponse> Documents()
+        public async Task<PandaDoc.Models.GetDocuments.GetDocumentsResponse> Documents()
         {
             var pandaDocHelper = new PandaDocHelper();
             var response = await pandaDocHelper.GetAllDocuments();
             return response.Value;
         }
 
-        [HttpGet]
-        [Route("~/api/document/upload")]
+        [HttpPost]
+        [Route("~/api/document/uploadfilepath")]
         public async Task<GetDocumentResponse> Upload(string fileName)
         {
             var sharedDocuments = new List<ShareDocumentResponse>();
             var pandaDocHelper = new PandaDocHelper();
             CreateDocumentRequest request = CreateDocumentRequest();
-            byte[] fileContent = File.ReadAllBytes(fileName);
+            byte[] fileContent = System.IO.File.ReadAllBytes(fileName);
             var response = await pandaDocHelper.CreateDocument(fileContent, request);
             return response.Value;
         }
 
-        [HttpGet]
-        [Route("~/api/document/uploadbytes")]
-        public async Task<GetDocumentResponse> Upload()
+        [HttpPost]
+        [Route("~/api/document/uploadfile")]
+        public async Task<GetDocumentResponse> Upload(IFormFile file)
         {
             byte[] fileContent;
             GetDocumentResponse response = new GetDocumentResponse();
-            if (HttpContext.Current.Request.Files.Count == 1)
+            if (file.Length > 0)
             {
-                using (var fs = HttpContext.Current.Request.Files[0].InputStream)
+                using (var ms = new MemoryStream())
                 {
-                    BinaryReader br = new BinaryReader(fs);
-                    fileContent = br.ReadBytes((int)fs.Length);
+                    file.CopyTo(ms);
+                    fileContent = ms.ToArray();
                 }
                 var pandaDocHelper = new PandaDocHelper();
                 CreateDocumentRequest request = CreateDocumentRequest();
@@ -58,7 +59,22 @@ namespace PandaDoc.Api.Controllers
             return response;
         }
 
-        [HttpGet]
+        [HttpPost]
+        [Route("~/api/document/uploadbytes")]
+        public async Task<GetDocumentResponse> Upload(byte[] fileContent)
+        {
+            GetDocumentResponse response = new GetDocumentResponse();
+            if (fileContent.Length > 0)
+            {
+                var pandaDocHelper = new PandaDocHelper();
+                CreateDocumentRequest request = CreateDocumentRequest();
+                var docresponse = await pandaDocHelper.CreateDocument(fileContent, request);
+                response = docresponse.Value;
+            }
+            return response;
+        }
+
+        [HttpPost]
         [Route("~/api/document/share")]
         public async Task<ShareDocumentResponse> Share(string documentId, string email)
         {
@@ -66,7 +82,7 @@ namespace PandaDoc.Api.Controllers
             var response = await pandaDocHelper.ShareDocument(documentId, email);
             return response.Value;
         }
-        
+
         private CreateDocumentRequest CreateDocumentRequest()
         {
             return new CreateDocumentRequest
@@ -107,6 +123,6 @@ namespace PandaDoc.Api.Controllers
 
             return client;
         }
-        
+
     }
 }
