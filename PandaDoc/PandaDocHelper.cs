@@ -82,6 +82,15 @@ namespace PandaDoc
             }
         }
 
+        public async Task<HttpResponseMessage> GetDocumentDetail(string documentId)
+        {
+            using (var client = SetApiKey())
+            {
+                var response = await client.GetDocumentDetail(documentId);
+                return response;
+            }
+        }
+
         private CreateDocumentRequest CreateDocumentRequest()
         {
             return new CreateDocumentRequest

@@ -150,6 +150,11 @@ namespace PandaDoc
             return response;
         }
 
+        public async Task<HttpResponseMessage> GetDocumentDetail(string uuid)
+        {
+            return await httpClient.GetAsync(settings.ApiUri + "public/v1/documents/" + uuid);
+        }
+
         public async Task<PandaDocHttpResponse<SendDocumentResponse>> SendDocument(string uuid, SendDocumentRequest request)
         {
             HttpContent httpContent = new ObjectContent<SendDocumentRequest>(request, JsonFormatter);

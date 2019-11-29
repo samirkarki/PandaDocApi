@@ -11,17 +11,26 @@ using System.Web.Http;
 
 namespace PandaDoc.Api.Controllers
 {
+    [Authorize]
     public class PandaController : ApiController
     {
         protected readonly string SampleDocUrl = "https://cdn2.hubspot.net/hubfs/2127247/public-templates/SamplePandaDocPdf_FieldTags.pdf";
+        PandaDocHelper pandaDocHelper = new PandaDocHelper();
+
 
         [HttpGet]
         [Route("~/api/documents")]
         public async Task<Models.GetDocuments.GetDocumentsResponse> Documents()
         {
-            var pandaDocHelper = new PandaDocHelper();
             var response = await pandaDocHelper.GetAllDocuments();
             return response.Value;
+        }
+
+        [HttpGet]
+        [Route("~/api/document/detail")]
+        public async Task<HttpResponseMessage> DocumentDetail(string documentId)
+        {
+            return await pandaDocHelper.GetDocumentDetail(documentId);
         }
 
         [HttpGet]
@@ -29,7 +38,6 @@ namespace PandaDoc.Api.Controllers
         public async Task<GetDocumentResponse> Upload()
         {
             var sharedDocuments = new List<ShareDocumentResponse>();
-            var pandaDocHelper = new PandaDocHelper();
             CreateDocumentRequest request = CreateDocumentRequest();
             var filePath = "D:\\panda.pdf";
             var response = await pandaDocHelper.CreateDocument(filePath, request);
@@ -40,7 +48,6 @@ namespace PandaDoc.Api.Controllers
         [Route("~/api/document/share")]
         public async Task<ShareDocumentResponse> Share(string documentId, string email)
         {
-            var pandaDocHelper = new PandaDocHelper();
             var response = await pandaDocHelper.ShareDocument(documentId, email);
             return response.Value;
         }

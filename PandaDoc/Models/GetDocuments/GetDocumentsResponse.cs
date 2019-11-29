@@ -1,5 +1,6 @@
 ﻿using System;
 using Newtonsoft.Json;
+using PandaDoc.Models.GetDocument;
 
 namespace PandaDoc.Models.GetDocuments
 {
@@ -159,7 +160,7 @@ namespace PandaDoc.Models.GetDocuments
         public DateTime DateModified { get; set; }
 
         [JsonProperty("status")]
-        public int Status { get; set; }
+        public string Status { get; set; }
 
         [JsonProperty("removed")]
         public bool Removed { get; set; }
@@ -172,5 +173,29 @@ namespace PandaDoc.Models.GetDocuments
 
         [JsonProperty("uuid")]
         public string Uuid { get; set; }
+
+        public DocumentStatus DocumentStatus
+        {
+            get
+            {
+                switch (Status)
+                {
+                    case "document.uploaded":
+                        return DocumentStatus.Uploaded;
+
+                    case "document.draft":
+                        return DocumentStatus.Draft;
+
+                    case "document.sent":
+                        return DocumentStatus.Sent;
+
+                    case "document.completed":
+                        return DocumentStatus.Completed;
+
+                    default:
+                        throw new ArgumentOutOfRangeException(string.Format("Status was '{0}'. This is a bug and a new DocumentStatus should be added", Status));
+                }
+            }
+        }
     }
 }
