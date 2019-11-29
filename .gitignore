@@ -183,3 +183,4 @@ UpgradeLog*.htm
 FakesAssemblies/
 Squirrel.Money.Admin/App_Data/uploads/
 /.vs
+/src/.vs/ids4/v16/Server/sqlite3
