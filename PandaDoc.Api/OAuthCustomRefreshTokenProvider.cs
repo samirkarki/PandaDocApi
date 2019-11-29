@@ -24,7 +24,7 @@ namespace PandaDoc.Api
             var refreshTokenProperties = new AuthenticationProperties(context.Ticket.Properties.Dictionary)
             {
                 IssuedUtc = context.Ticket.Properties.IssuedUtc,
-                ExpiresUtc = DateTime.UtcNow.AddMinutes(10)
+                ExpiresUtc = DateTime.UtcNow.AddMinutes(20)
             };
             var refreshTokenTicket = await Task.Run(() => new AuthenticationTicket(context.Ticket.Identity, refreshTokenProperties));
 

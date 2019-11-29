@@ -23,8 +23,8 @@ namespace PandaDoc.Api.Controllers
         [HttpGet]
         public async Task<ViewResult> Details(string documentId)
         {
-            var docs = await pandaDoc.GetDocument(documentId);
-            return View(docs.Value);
+            var docs = await pandaDoc.GetDocumentDetail(documentId);
+            return View(docs);
         }
 
 

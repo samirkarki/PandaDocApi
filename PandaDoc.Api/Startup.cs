@@ -17,12 +17,13 @@ namespace PandaDoc.Api
             OAuthOptions = new OAuthAuthorizationServerOptions
             {
                 TokenEndpointPath = new PathString("/token"),
-                Provider = new OAuthCustomTokenProvider(), // We will create
-                AccessTokenExpireTimeSpan = TimeSpan.FromMinutes(20),
+                Provider = new OAuthCustomTokenProvider(),
+                AccessTokenExpireTimeSpan = TimeSpan.FromMinutes(10),
                 AllowInsecureHttp = true,
-                RefreshTokenProvider = new OAuthCustomRefreshTokenProvider() // We will create
+                RefreshTokenProvider = new OAuthCustomRefreshTokenProvider()
             };
             app.UseOAuthBearerTokens(OAuthOptions);
+            //app.UseOAuthBearerAuthentication()
         }
     }
 

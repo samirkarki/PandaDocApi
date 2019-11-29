@@ -12,11 +12,11 @@ namespace PandaDoc.Api
             Id = "12erf0";
             Username = "test";
             Password = "1234";
-            ApplicationId = "ipd";
+            ClientId = "ipd";
         }
         public string Id { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
-        public string ApplicationId { get; set; }
+        public string ClientId { get; set; }
     }
 }

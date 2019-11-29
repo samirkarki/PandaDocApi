@@ -18,6 +18,7 @@ namespace PandaDoc.Api
             {
                 var userName = context.UserName;
                 var password = context.Password;
+                var clientId = context.ClientId;
                 var user = new AppUser();//validate user
                 if (user != null)
                 {
@@ -25,6 +26,7 @@ namespace PandaDoc.Api
             {
                 new Claim(ClaimTypes.Sid, Convert.ToString(user.Id)),
                 new Claim(ClaimTypes.Name, user.Username),
+                new Claim(ClaimTypes.Expiration, DateTime.Now.AddMinutes(10).ToString()),
             };
                     //foreach (var role in user.Roles)
                     //    claims.Add(new Claim(ClaimTypes.Role, role));
@@ -32,7 +34,7 @@ namespace PandaDoc.Api
                     var data = new Dictionary<string, string>
             {
                 { "userName", user.Username },
-                { "applicationId", user.ApplicationId}
+                { "clientId", user.ClientId}
             };
                     var properties = new AuthenticationProperties(data);
 
