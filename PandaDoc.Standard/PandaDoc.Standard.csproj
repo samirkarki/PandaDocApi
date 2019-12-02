@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="PandaDocBearerToken.cs" />
+    <Compile Remove="PandaDocHelper.cs" />
+    <Compile Remove="PandaDocHttpClient.cs" />
+    <Compile Remove="PandaDocHttpClientSettings.cs" />
+    <Compile Remove="PandaDocHttpResponse.cs" />
+    <Compile Remove="PandaDocHttpResponseExtensions.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="RestSharp" Version="106.6.10" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PandaDoc.Models\PandaDoc.Models.csproj" />
+  </ItemGroup>
+
+</Project>

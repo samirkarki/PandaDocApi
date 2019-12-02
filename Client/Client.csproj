@@ -111,6 +111,16 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Esign.Client\Esign.Client.csproj">
+      <Project>{b6689cb9-fc6f-4c3b-bfba-a76f858b296d}</Project>
+      <Name>Esign.Client</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PandaDoc.Models\PandaDoc.Models.csproj">
+      <Project>{B61CDD45-A3E6-435B-9925-DAAD08E05ED9}</Project>
+      <Name>PandaDoc.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

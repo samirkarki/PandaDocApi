@@ -58,15 +58,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="PandaDocHelper.cs" />
-    <Compile Include="Models\CreateDocument\CreateDocumentResponse.cs" />
-    <Compile Include="Models\CreateDocument\CreateDocumentRequest.cs" />
-    <Compile Include="Models\GetDocuments\GetDocumentsResponse.cs" />
-    <Compile Include="Models\GetDocument\GetDocumentResponse.cs" />
-    <Compile Include="Models\SendDocument\SendDocumentRequest.cs" />
-    <Compile Include="Models\ShareDocument\ShareDocumentRequest.cs" />
-    <Compile Include="Models\Webhooks\Notification.cs" />
-    <Compile Include="Models\Webhooks\Document.cs" />
-    <Compile Include="Models\Webhooks\Recipient.cs" />
     <Compile Include="PandaDocBearerToken.cs" />
     <Compile Include="PandaDocHttpResponseExtensions.cs" />
     <Compile Include="PandaDocHttpClient.cs" />
@@ -77,6 +68,13 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\PandaDoc.Models\PandaDoc.Models.csproj">
+      <Project>{b61cdd45-a3e6-435b-9925-daad08e05ed9}</Project>
+      <Name>PandaDoc.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />

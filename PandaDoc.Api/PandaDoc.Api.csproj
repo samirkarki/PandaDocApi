@@ -308,6 +308,10 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\PandaDoc.Models\PandaDoc.Models.csproj">
+      <Project>{b61cdd45-a3e6-435b-9925-daad08e05ed9}</Project>
+      <Name>PandaDoc.Models</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PandaDoc\PandaDoc.csproj">
       <Project>{4a812e8a-f401-45c7-beb7-5f1184a49d24}</Project>
       <Name>PandaDoc</Name>

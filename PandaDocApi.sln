@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29102.190
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.902
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PandaDoc", "PandaDoc\PandaDoc.csproj", "{4A812E8A-F401-45C7-BEB7-5F1184A49D24}"
 EndProject
@@ -11,9 +11,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{C0069804-5F4
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityServer", "src\IdentityServer\IdentityServer.csproj", "{82F89CB4-53BF-4E85-B0B7-0F3EAA3DCCDE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Esign.Api", "Esign.Api\Esign.Api.csproj", "{BB6C319E-D82F-46BE-A51F-45E7E7A6E8D7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Esign.Api", "Esign.Api\Esign.Api.csproj", "{BB6C319E-D82F-46BE-A51F-45E7E7A6E8D7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "Client\Client.csproj", "{073564AC-FE18-4613-9666-F52A088285BF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Esign.Client", "Esign.Client\Esign.Client.csproj", "{B6689CB9-FC6F-4C3B-BFBA-A76F858B296D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PandaDoc.Models", "PandaDoc.Models\PandaDoc.Models.csproj", "{B61CDD45-A3E6-435B-9925-DAAD08E05ED9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PandaDoc.Standard", "PandaDoc.Standard\PandaDoc.Standard.csproj", "{52499ED9-0E98-4581-B507-AF7C5C95FC60}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +47,18 @@ Global
 		{073564AC-FE18-4613-9666-F52A088285BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{073564AC-FE18-4613-9666-F52A088285BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{073564AC-FE18-4613-9666-F52A088285BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6689CB9-FC6F-4C3B-BFBA-A76F858B296D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6689CB9-FC6F-4C3B-BFBA-A76F858B296D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6689CB9-FC6F-4C3B-BFBA-A76F858B296D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6689CB9-FC6F-4C3B-BFBA-A76F858B296D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B61CDD45-A3E6-435B-9925-DAAD08E05ED9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B61CDD45-A3E6-435B-9925-DAAD08E05ED9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B61CDD45-A3E6-435B-9925-DAAD08E05ED9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B61CDD45-A3E6-435B-9925-DAAD08E05ED9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52499ED9-0E98-4581-B507-AF7C5C95FC60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52499ED9-0E98-4581-B507-AF7C5C95FC60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52499ED9-0E98-4581-B507-AF7C5C95FC60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52499ED9-0E98-4581-B507-AF7C5C95FC60}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
