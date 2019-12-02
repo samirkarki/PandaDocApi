@@ -10,7 +10,8 @@ namespace PandaDoc.Api.Controllers
         [HttpGet]
         public ViewResult Index(string sessionId)
         {
-            return View(sessionId);
+            ViewBag.SessionId = sessionId;
+            return View();
         }
 
         [HttpGet]

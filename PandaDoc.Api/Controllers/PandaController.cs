@@ -12,7 +12,7 @@ using System.Web.Http;
 
 namespace PandaDoc.Api.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class PandaController : ApiController
     {
         protected readonly string SampleDocUrl = "https://cdn2.hubspot.net/hubfs/2127247/public-templates/SamplePandaDocPdf_FieldTags.pdf";
