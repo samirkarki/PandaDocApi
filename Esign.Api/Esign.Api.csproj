@@ -16,7 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\PandaDoc.Models\PandaDoc.Models.csproj" />
-    <ProjectReference Include="..\PandaDoc\PandaDoc.csproj" />
+    <ProjectReference Include="..\PandaDoc.Standard\PandaDoc.Standard.csproj" />
   </ItemGroup>
 
 </Project>

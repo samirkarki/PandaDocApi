@@ -10,6 +10,7 @@ namespace PandaDoc.Models.GetDocument
         Draft,
         Sent,
         Completed,
+        Viewed
     }
 
     public class GetDocumentResponse

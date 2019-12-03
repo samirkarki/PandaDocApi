@@ -10,6 +10,7 @@ using PandaDoc;
 using PandaDoc.Models.CreateDocument;
 using PandaDoc.Models.GetDocument;
 using PandaDoc.Models.SendDocument;
+using PandaDoc.Standard;
 
 namespace Esign.Api.Controllers
 {
@@ -39,7 +40,7 @@ namespace Esign.Api.Controllers
         {
             var pandaDocHelper = new PandaDocHelper();
             var response = await pandaDocHelper.GetAllDocuments();
-            return response.Value;
+            return response;
         }
 
         [HttpPost]
@@ -51,7 +52,7 @@ namespace Esign.Api.Controllers
             CreateDocumentRequest request = CreateDocumentRequest();
             byte[] fileContent = System.IO.File.ReadAllBytes(fileName);
             var response = await pandaDocHelper.CreateDocument(fileContent, request);
-            return response.Value;
+            return response;
         }
 
         [HttpPost]
@@ -70,7 +71,7 @@ namespace Esign.Api.Controllers
                 var pandaDocHelper = new PandaDocHelper();
                 CreateDocumentRequest request = CreateDocumentRequest();
                 var docresponse = await pandaDocHelper.CreateDocument(fileContent, request);
-                response = docresponse.Value;
+                response = docresponse;
             }
             return response;
         }
@@ -85,7 +86,7 @@ namespace Esign.Api.Controllers
                 var pandaDocHelper = new PandaDocHelper();
                 CreateDocumentRequest request = CreateDocumentRequest();
                 var docresponse = await pandaDocHelper.CreateDocument(file, request);
-                response = docresponse.Value;
+                response = docresponse;
             }
             return response;
         }
@@ -96,7 +97,7 @@ namespace Esign.Api.Controllers
         {
             var pandaDocHelper = new PandaDocHelper();
             var response = await pandaDocHelper.ShareDocument(documentId, email);
-            return response.Value;
+            return response;
         }
 
         private CreateDocumentRequest CreateDocumentRequest()

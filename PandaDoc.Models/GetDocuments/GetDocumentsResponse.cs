@@ -191,6 +191,8 @@ namespace PandaDoc.Models.GetDocuments
 
                     case "document.completed":
                         return DocumentStatus.Completed;
+                    case "document.viewed":
+                        return DocumentStatus.Viewed;
 
                     default:
                         throw new ArgumentOutOfRangeException(string.Format("Status was '{0}'. This is a bug and a new DocumentStatus should be added", Status));
