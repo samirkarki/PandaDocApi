@@ -5,11 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="PandaDocBearerToken.cs" />
-    <Compile Remove="PandaDocHelper.cs" />
-    <Compile Remove="PandaDocHttpClient.cs" />
-    <Compile Remove="PandaDocHttpClientSettings.cs" />
-    <Compile Remove="PandaDocHttpResponse.cs" />
     <Compile Remove="PandaDocHttpResponseExtensions.cs" />
   </ItemGroup>
 

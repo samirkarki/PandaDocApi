@@ -10,7 +10,7 @@ namespace PandaDoc.Standard
     public class PandaDocHelper
     {
         protected readonly string SampleDocUrl = "https://cdn2.hubspot.net/hubfs/2127247/public-templates/SamplePandaDocPdf_FieldTags.pdf";
-        public async Task<PandaDocHttpResponse<GetDocumentResponse>> CreateDocument(byte[] fileContent, CreateDocumentRequest request)
+        public async Task<GetDocumentResponse> CreateDocument(byte[] fileContent, CreateDocumentRequest request)
         {
             var sharedDocuments = new List<ShareDocumentResponse>();
             using (var client = SetApiKey())
@@ -35,7 +35,7 @@ namespace PandaDoc.Standard
             }
         }
 
-        public async Task<PandaDocHttpResponse<ShareDocumentResponse>> ShareDocument(string documentId, string recipientEmail)
+        public async Task<ShareDocumentResponse> ShareDocument(string documentId, string recipientEmail)
         {
             var shareRequest = new ShareDocumentRequest
             {
@@ -48,7 +48,7 @@ namespace PandaDoc.Standard
             }
         }
 
-        public async Task<PandaDocHttpResponse<PandaDoc.Models.GetDocuments.GetDocumentsResponse>> GetAllDocuments()
+        public async Task<PandaDoc.Models.GetDocuments.GetDocumentsResponse> GetAllDocuments()
         {
             using (var client = SetApiKey())
             {
@@ -57,7 +57,7 @@ namespace PandaDoc.Standard
             }
         }
 
-        public async Task<PandaDocHttpResponse<PandaDoc.Models.GetDocument.GetDocumentResponse>> GetDocument(string documentId)
+        public async Task<GetDocumentResponse> GetDocument(string documentId)
         {
             using (var client = SetApiKey())
             {
