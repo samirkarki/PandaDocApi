@@ -46,16 +46,14 @@ namespace PandaDoc.Models.GetDocument
                 {
                     case "document.uploaded":
                         return DocumentStatus.Uploaded;
-
                     case "document.draft":
                         return DocumentStatus.Draft;
-
                     case "document.sent":
                         return DocumentStatus.Sent;
-
+                    case "document.viewed":
+                        return DocumentStatus.Viewed;
                     case "document.completed":
                         return DocumentStatus.Completed;
-
                     default:
                         throw new ArgumentOutOfRangeException(string.Format("Status was '{0}'. This is a bug and a new DocumentStatus should be added", Status));
                 }

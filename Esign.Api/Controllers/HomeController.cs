@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
 using PandaDoc;
 using PandaDoc.Models.CreateDocument;
 using PandaDoc.Models.GetDocument;
@@ -17,6 +18,11 @@ namespace Esign.Api.Controllers
     public class HomeController : Controller
     {
         protected readonly string SampleDocUrl = "https://cdn2.hubspot.net/hubfs/2127247/public-templates/SamplePandaDocPdf_FieldTags.pdf";
+        private AppData appData;
+        public HomeController(IOptions<AppData> config)
+        {
+            appData = config.Value;
+        }
 
         [Authorize]
         [HttpGet]
@@ -45,11 +51,10 @@ namespace Esign.Api.Controllers
 
         [HttpPost]
         [Route("uploadfilepath")]
-        public async Task<GetDocumentResponse> Upload(string fileName)
+        public async Task<GetDocumentResponse> Upload(string fileName, CreateDocumentRequest request)
         {
             var sharedDocuments = new List<ShareDocumentResponse>();
             var pandaDocHelper = new PandaDocHelper();
-            CreateDocumentRequest request = CreateDocumentRequest();
             byte[] fileContent = System.IO.File.ReadAllBytes(fileName);
             var response = await pandaDocHelper.CreateDocument(fileContent, request);
             return response;
@@ -57,7 +62,7 @@ namespace Esign.Api.Controllers
 
         [HttpPost]
         [Route("uploadfile")]
-        public async Task<GetDocumentResponse> Upload(IFormFile file)
+        public async Task<GetDocumentResponse> Upload(IFormFile file, CreateDocumentRequest request)
         {
             byte[] fileContent;
             GetDocumentResponse response = new GetDocumentResponse();
@@ -69,7 +74,6 @@ namespace Esign.Api.Controllers
                     fileContent = ms.ToArray();
                 }
                 var pandaDocHelper = new PandaDocHelper();
-                CreateDocumentRequest request = CreateDocumentRequest();
                 var docresponse = await pandaDocHelper.CreateDocument(fileContent, request);
                 response = docresponse;
             }
@@ -78,14 +82,13 @@ namespace Esign.Api.Controllers
 
         [HttpPost]
         [Route("uploadbytes")]
-        public async Task<GetDocumentResponse> Upload(byte[] file)
+        public async Task<GetDocumentResponse> Upload(byte[] fileBytes, CreateDocumentRequest request)
         {
             GetDocumentResponse response = new GetDocumentResponse();
-            if (file.Length > 0)
+            if (fileBytes.Length > 0)
             {
                 var pandaDocHelper = new PandaDocHelper();
-                CreateDocumentRequest request = CreateDocumentRequest();
-                var docresponse = await pandaDocHelper.CreateDocument(file, request);
+                var docresponse = await pandaDocHelper.CreateDocument(fileBytes, request);
                 response = docresponse;
             }
             return response;
@@ -135,7 +138,7 @@ namespace Esign.Api.Controllers
             var settings = new PandaDocHttpClientSettings();
             var client = new PandaDocHttpClient(settings);
 
-            var bearerToken = new PandaDocBearerToken { ApiKey = "c6caae24740bb7bfffc0895f27bbf1ca7fe6bbe9" };
+            var bearerToken = new PandaDocBearerToken { ApiKey = appData.PandaDocApiKey };
             client.SetBearerToken(bearerToken);
 
             return client;

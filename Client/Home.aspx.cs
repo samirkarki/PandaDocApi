@@ -16,6 +16,8 @@ namespace Client
 {
     public partial class Home : System.Web.UI.Page
     {
+        protected readonly string SampleDocUrl = "https://cdn2.hubspot.net/hubfs/2127247/public-templates/SamplePandaDocPdf_FieldTags.pdf";
+
         protected void Page_Load(object sender, EventArgs e)
         {
             //EsignApiClient esignApiClient = new EsignApiClient();
@@ -58,19 +60,54 @@ namespace Client
 
             // call api
             var apiClient = new HttpClient();
-            apiClient.SetBearerToken(tokenResponse.AccessToken);
+            //apiClient.SetBearerToken(tokenResponse.AccessToken);
 
-            var response = apiClient.GetAsync("https://localhost:44307/identity").Result;
-            if (!response.IsSuccessStatusCode)
-            {
-                apiresult.InnerText = response.ToString();
-            }
-            else
-            {
-                var content = response.Content.ReadAsStringAsync().Result;
-                apiresult.InnerText = content;
-            }
+            //var response = apiClient.GetAsync("https://localhost:44307/identity").Result;
+            //if (!response.IsSuccessStatusCode)
+            //{
+            //    apiresult.InnerText = response.ToString();
+            //}
+            //else
+            //{
+            //    var content = response.Content.ReadAsStringAsync().Result;
+            //    apiresult.InnerText = content;
+            //}
+            EsignApiClient esignClient = new EsignApiClient();
+            byte[] fileContent = File.ReadAllBytes("C:\\Users\\i81211\\Desktop\\panda.pdf");
+            var docRequest = CreateDocumentRequest();
+            var response = esignClient.UploadDocument(fileContent, docRequest);
+            apiresult.InnerText = response.ToString();
+        }
 
+
+        private CreateDocumentRequest CreateDocumentRequest()
+        {
+            return new CreateDocumentRequest
+            {
+                Name = "Sample Document 1",
+                Url = SampleDocUrl,
+                Recipients = new[]
+                {
+                    new Recipient
+                    {
+                        Email = "samir.ctec@gmail.com",
+                        FirstName = "Samir",
+                        LastName = "Ctec",
+                        Role = "role1",
+                    },
+                    new Recipient
+                    {
+                        Email = "samir@teksewa.com",
+                        FirstName = "Samir",
+                        LastName = "Teksewa",
+                        Role = "role2",
+                    }
+                },
+                Fields = new Dictionary<string, Field>
+                {
+                    {"optId", new Field {Title = "Field 1"}}
+                }
+            };
         }
     }
 }

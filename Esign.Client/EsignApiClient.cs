@@ -73,14 +73,14 @@ namespace Esign.Client
 
         public CreateDocumentResponse UploadDocument(byte[] pdfBytes, CreateDocumentRequest document)
         {
-            var client = new RestClient($"{esignApiUrl}/api/document/uploadbytes");
+            var client = new RestClient($"{esignApiUrl}/uploadbytes");
             var request = new RestRequest(Method.POST);
             request.AddHeader("Accept", "*/*");
             request.AddHeader("Content-Type", "multipart/form-data");
             request.AddHeader("Authorization", $"Bearer {accessToken}");
             request.AddHeader("content-type", "multipart/form-data");
 
-            request.AddFileBytes("file", pdfBytes, "panda.pdf", "application/pdf");
+            request.AddFileBytes("fileBytes", pdfBytes, "panda.pdf", "application/pdf");
             var json = JsonConvert.SerializeObject(document);
             request.AddParameter("data", json);
             request.AlwaysMultipartFormData = true;
