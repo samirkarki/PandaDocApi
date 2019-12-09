@@ -64,12 +64,12 @@ namespace Esign.Client
 
         }
 
-        public async Task<GetDocumentsResponse> GetDocuments()
+        public GetDocumentsResponse GetDocuments()
         {
             HttpClient client = new HttpClient();
             client.SetBearerToken(accessToken);
-            var response = await client.GetAsync($"{esignApiUrl}/documents");
-            var responseString = await response.Content.ReadAsStringAsync();
+            var response = client.GetAsync(esignApiUrl+"/documents").Result;
+            var responseString = response.Content.ReadAsStringAsync().Result;
             return JsonConvert.DeserializeObject<GetDocumentsResponse>(responseString);
 
         }
@@ -95,18 +95,18 @@ namespace Esign.Client
             return new CreateDocumentResponse();
         }
 
-        public async Task<dynamic> ShareDocument(string documentId, string recipientEmail)
+        public dynamic ShareDocument(string documentId, string recipientEmail)
         {
             HttpClient client = new HttpClient();
             var shareRequest = new ShareDocumentRequest
             {
-                Recipient = recipientEmail,
+                Recipient = recipientEmail
             };
             HttpContent httpContent = new StringContent(JsonConvert.SerializeObject(shareRequest), UnicodeEncoding.UTF8, "application/json");
 
             client.SetBearerToken(accessToken);
-            var response = await client.PostAsync($"{esignApiUrl}/api/sharedocument/{documentId}", httpContent);
-            return JsonConvert.DeserializeObject<dynamic>(response.Content.ToString());
+            var response = client.GetAsync($"{esignApiUrl}/sharedocument?documentId={documentId}&recipientEmail={recipientEmail}").Result;
+            return JsonConvert.DeserializeObject<dynamic>(response.Content.ReadAsStringAsync().Result);
         }
     }
 }

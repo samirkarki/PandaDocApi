@@ -13,13 +13,13 @@ namespace Client {
     public partial class Home {
         
         /// <summary>
-        /// btn_upload control.
+        /// form1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_upload;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
         /// gv_documents control.
@@ -29,6 +29,15 @@ namespace Client {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gv_documents;
+        
+        /// <summary>
+        /// btn_upload control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_upload;
         
         /// <summary>
         /// txt_documentid control.

@@ -41,10 +41,10 @@ namespace Esign.Api.Controllers
 
         [HttpGet]
         [Route("documents")]
-        public async Task<PandaDoc.Models.GetDocuments.GetDocumentsResponse> Documents()
+        public PandaDoc.Models.GetDocuments.GetDocumentsResponse Documents()
         {
             var pandaDocHelper = new PandaDocHelper();
-            var response = await pandaDocHelper.GetAllDocuments();
+            var response = pandaDocHelper.GetAllDocuments().Result;
             return response;
         }
 
@@ -81,7 +81,7 @@ namespace Esign.Api.Controllers
 
         [HttpPost]
         [Route("uploadfileWithJson")]
-        public async Task<HttpResponseMessage> Upload(IFormFile file, string createDocumentRequestJson)
+        public dynamic Upload(IFormFile file, string createDocumentRequestJson)
         {
             byte[] fileContent;
             if (file.Length > 0)
@@ -92,7 +92,7 @@ namespace Esign.Api.Controllers
                     fileContent = ms.ToArray();
                 }
                 var pandaDocHelper = new PandaDocHelper();
-                var response = await pandaDocHelper.CreateDocument(fileContent, createDocumentRequestJson);
+                var response = pandaDocHelper.CreateDocument(fileContent, createDocumentRequestJson).Result;
                 return response;
             }
             else
@@ -115,10 +115,10 @@ namespace Esign.Api.Controllers
 
         [HttpGet]
         [Route("sharedocument")]
-        public async Task<ShareDocumentResponse> Share(string documentId, string shareDocumentRequest)
+        public ShareDocumentResponse Share(string documentId, string recipientEmail)
         {
             var pandaDocHelper = new PandaDocHelper();
-            var response = await pandaDocHelper.ShareDocument(documentId, shareDocumentRequest);
+            var response = pandaDocHelper.ShareDocument(documentId, recipientEmail).Result;
             return response;
         }
 

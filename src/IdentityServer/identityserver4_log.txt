@@ -764,3 +764,879 @@
 2019-12-09 05:40:05.440 -08:00 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
 2019-12-09 05:40:05.440 -08:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
 2019-12-09 05:40:05.440 -08:00 [DBG] Start key discovery request
+2019-12-09 20:06:32.886 +05:45 [INF] Starting IdentityServer4 version 2.5.0.0
+2019-12-09 20:06:32.970 +05:45 [INF] You are using the in-memory version of the persisted grant store. This will store consent decisions, authorization codes, refresh and reference tokens in memory only. If you are using any of those features in production, you want to switch to a different store implementation.
+2019-12-09 20:06:32.988 +05:45 [INF] Using the default authentication scheme idsrv for IdentityServer
+2019-12-09 20:06:32.988 +05:45 [DBG] Using idsrv as default ASP.NET Core scheme for authentication
+2019-12-09 20:06:32.988 +05:45 [DBG] Using idsrv as default ASP.NET Core scheme for sign-in
+2019-12-09 20:06:32.988 +05:45 [DBG] Using idsrv as default ASP.NET Core scheme for sign-out
+2019-12-09 20:06:32.988 +05:45 [DBG] Using idsrv as default ASP.NET Core scheme for challenge
+2019-12-09 20:06:32.988 +05:45 [DBG] Using idsrv as default ASP.NET Core scheme for forbid
+2019-12-09 20:06:33.553 +05:45 [DBG] Login Url: /Account/Login
+2019-12-09 20:06:33.556 +05:45 [DBG] Login Return Url Parameter: ReturnUrl
+2019-12-09 20:06:33.556 +05:45 [DBG] Logout Url: /Account/Logout
+2019-12-09 20:06:33.556 +05:45 [DBG] ConsentUrl Url: /consent
+2019-12-09 20:06:33.556 +05:45 [DBG] Consent Return Url Parameter: returnUrl
+2019-12-09 20:06:33.556 +05:45 [DBG] Error Url: /home/error
+2019-12-09 20:06:33.556 +05:45 [DBG] Error Id Parameter: errorId
+2019-12-09 20:07:09.188 +05:45 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-12-09 20:07:09.197 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-12-09 20:07:09.197 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-12-09 20:07:09.204 +05:45 [DBG] Start discovery request
+2019-12-09 20:07:42.918 +05:45 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-12-09 20:07:42.919 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-12-09 20:07:42.919 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-12-09 20:07:42.919 +05:45 [DBG] Start discovery request
+2019-12-09 20:07:43.018 +05:45 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-12-09 20:07:43.019 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-12-09 20:07:43.019 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-12-09 20:07:43.024 +05:45 [DBG] Start key discovery request
+2019-12-09 20:07:43.291 +05:45 [DBG] Request path /connect/token matched to endpoint type Token
+2019-12-09 20:07:43.297 +05:45 [DBG] Endpoint enabled: Token, successfully created handler: IdentityServer4.Endpoints.TokenEndpoint
+2019-12-09 20:07:43.297 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.TokenEndpoint for /connect/token
+2019-12-09 20:07:43.304 +05:45 [DBG] Start token request.
+2019-12-09 20:07:43.309 +05:45 [DBG] Start client validation
+2019-12-09 20:07:43.314 +05:45 [DBG] Start parsing Basic Authentication secret
+2019-12-09 20:07:43.317 +05:45 [DBG] Start parsing for secret in post body
+2019-12-09 20:07:43.336 +05:45 [DBG] Parser found secret: PostBodySecretParser
+2019-12-09 20:07:43.336 +05:45 [DBG] Secret id found: ipd
+2019-12-09 20:07:43.357 +05:45 [DBG] client configuration validation for client ipd succeeded.
+2019-12-09 20:07:43.384 +05:45 [DBG] Secret validator success: HashedSharedSecretValidator
+2019-12-09 20:07:43.385 +05:45 [DBG] Client validation success
+2019-12-09 20:07:43.415 +05:45 [DBG] Start token request validation
+2019-12-09 20:07:43.433 +05:45 [DBG] Start client credentials token request validation
+2019-12-09 20:07:43.464 +05:45 [DBG] ipd credentials token request validation success
+2019-12-09 20:07:43.475 +05:45 [INF] Token request validation success, {"ClientId":"ipd","ClientName":null,"GrantType":"client_credentials","Scopes":"esign","AuthorizationCode":null,"RefreshToken":null,"UserName":null,"AuthenticationContextReferenceClasses":null,"Tenant":null,"IdP":null,"Raw":{"grant_type":"client_credentials","scope":"esign","client_id":"ipd","client_secret":"***REDACTED***"},"$type":"TokenRequestValidationLog"}
+2019-12-09 20:07:43.521 +05:45 [DBG] Getting claims for access token for client: ipd
+2019-12-09 20:07:43.576 +05:45 [DBG] Token request success.
+2019-12-09 20:07:53.482 +05:45 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-12-09 20:07:53.482 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-12-09 20:07:53.482 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-12-09 20:07:53.482 +05:45 [DBG] Start discovery request
+2019-12-09 20:07:54.039 +05:45 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-12-09 20:07:54.039 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-12-09 20:07:54.039 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-12-09 20:07:54.040 +05:45 [DBG] Start key discovery request
+2019-12-09 20:08:30.783 +05:45 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-12-09 20:08:30.784 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-12-09 20:08:30.784 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-12-09 20:08:30.784 +05:45 [DBG] Start discovery request
+2019-12-09 20:08:30.818 +05:45 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-12-09 20:08:30.819 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-12-09 20:08:30.819 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-12-09 20:08:30.819 +05:45 [DBG] Start key discovery request
+2019-12-09 20:14:33.774 +05:45 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-12-09 20:14:33.774 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-12-09 20:14:33.774 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-12-09 20:14:33.774 +05:45 [DBG] Start discovery request
+2019-12-09 20:14:33.786 +05:45 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-12-09 20:14:33.786 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-12-09 20:14:33.786 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-12-09 20:14:33.786 +05:45 [DBG] Start key discovery request
+2019-12-09 20:15:05.920 +05:45 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-12-09 20:15:05.920 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-12-09 20:15:05.920 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-12-09 20:15:05.920 +05:45 [DBG] Start discovery request
+2019-12-09 20:15:05.925 +05:45 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-12-09 20:15:05.926 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-12-09 20:15:05.926 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-12-09 20:15:05.926 +05:45 [DBG] Start key discovery request
+2019-12-09 20:15:31.121 +05:45 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-12-09 20:15:31.121 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-12-09 20:15:31.121 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-12-09 20:15:31.121 +05:45 [DBG] Start discovery request
+2019-12-09 20:15:31.133 +05:45 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-12-09 20:15:31.133 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-12-09 20:15:31.134 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-12-09 20:15:31.134 +05:45 [DBG] Start key discovery request
+2019-12-09 20:20:02.881 +05:45 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-12-09 20:20:02.881 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-12-09 20:20:02.881 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-12-09 20:20:02.881 +05:45 [DBG] Start discovery request
+2019-12-09 20:20:02.901 +05:45 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-12-09 20:20:02.901 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-12-09 20:20:02.901 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-12-09 20:20:02.901 +05:45 [DBG] Start key discovery request
+2019-12-09 20:31:46.033 +05:45 [INF] Starting IdentityServer4 version 2.5.0.0
+2019-12-09 20:31:46.109 +05:45 [INF] You are using the in-memory version of the persisted grant store. This will store consent decisions, authorization codes, refresh and reference tokens in memory only. If you are using any of those features in production, you want to switch to a different store implementation.
+2019-12-09 20:31:46.124 +05:45 [INF] Using the default authentication scheme idsrv for IdentityServer
+2019-12-09 20:31:46.124 +05:45 [DBG] Using idsrv as default ASP.NET Core scheme for authentication
+2019-12-09 20:31:46.124 +05:45 [DBG] Using idsrv as default ASP.NET Core scheme for sign-in
+2019-12-09 20:31:46.124 +05:45 [DBG] Using idsrv as default ASP.NET Core scheme for sign-out
+2019-12-09 20:31:46.124 +05:45 [DBG] Using idsrv as default ASP.NET Core scheme for challenge
+2019-12-09 20:31:46.124 +05:45 [DBG] Using idsrv as default ASP.NET Core scheme for forbid
+2019-12-09 20:31:46.388 +05:45 [DBG] Login Url: /Account/Login
+2019-12-09 20:31:46.392 +05:45 [DBG] Login Return Url Parameter: ReturnUrl
+2019-12-09 20:31:46.392 +05:45 [DBG] Logout Url: /Account/Logout
+2019-12-09 20:31:46.392 +05:45 [DBG] ConsentUrl Url: /consent
+2019-12-09 20:31:46.392 +05:45 [DBG] Consent Return Url Parameter: returnUrl
+2019-12-09 20:31:46.392 +05:45 [DBG] Error Url: /home/error
+2019-12-09 20:31:46.392 +05:45 [DBG] Error Id Parameter: errorId
+2019-12-09 20:31:46.447 +05:45 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-12-09 20:31:46.453 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-12-09 20:31:46.453 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-12-09 20:31:46.459 +05:45 [DBG] Start discovery request
+2019-12-09 20:31:46.673 +05:45 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-12-09 20:31:46.674 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-12-09 20:31:46.674 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-12-09 20:31:46.681 +05:45 [DBG] Start key discovery request
+2019-12-09 20:31:46.954 +05:45 [DBG] Request path /connect/token matched to endpoint type Token
+2019-12-09 20:31:46.966 +05:45 [DBG] Endpoint enabled: Token, successfully created handler: IdentityServer4.Endpoints.TokenEndpoint
+2019-12-09 20:31:46.966 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.TokenEndpoint for /connect/token
+2019-12-09 20:31:46.981 +05:45 [DBG] Start token request.
+2019-12-09 20:31:46.993 +05:45 [DBG] Start client validation
+2019-12-09 20:31:47.002 +05:45 [DBG] Start parsing Basic Authentication secret
+2019-12-09 20:31:47.010 +05:45 [DBG] Start parsing for secret in post body
+2019-12-09 20:31:47.042 +05:45 [DBG] Parser found secret: PostBodySecretParser
+2019-12-09 20:31:47.042 +05:45 [DBG] Secret id found: ipd
+2019-12-09 20:31:47.068 +05:45 [DBG] client configuration validation for client ipd succeeded.
+2019-12-09 20:31:47.083 +05:45 [DBG] Secret validator success: HashedSharedSecretValidator
+2019-12-09 20:31:49.082 +05:45 [DBG] Client validation success
+2019-12-09 20:31:49.119 +05:45 [DBG] Start token request validation
+2019-12-09 20:31:49.140 +05:45 [DBG] Start client credentials token request validation
+2019-12-09 20:31:49.188 +05:45 [DBG] ipd credentials token request validation success
+2019-12-09 20:31:49.214 +05:45 [INF] Token request validation success, {"ClientId":"ipd","ClientName":null,"GrantType":"client_credentials","Scopes":"esign","AuthorizationCode":null,"RefreshToken":null,"UserName":null,"AuthenticationContextReferenceClasses":null,"Tenant":null,"IdP":null,"Raw":{"grant_type":"client_credentials","scope":"esign","client_id":"ipd","client_secret":"***REDACTED***"},"$type":"TokenRequestValidationLog"}
+2019-12-09 20:31:49.279 +05:45 [DBG] Getting claims for access token for client: ipd
+2019-12-09 20:31:49.410 +05:45 [DBG] Token request success.
+2019-12-09 20:31:49.966 +05:45 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-12-09 20:31:49.966 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-12-09 20:31:49.966 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-12-09 20:31:49.967 +05:45 [DBG] Start discovery request
+2019-12-09 20:31:50.571 +05:45 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-12-09 20:31:50.571 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-12-09 20:31:50.571 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-12-09 20:31:50.571 +05:45 [DBG] Start key discovery request
+2019-12-09 20:32:59.293 +05:45 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-12-09 20:32:59.293 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-12-09 20:32:59.293 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-12-09 20:32:59.293 +05:45 [DBG] Start discovery request
+2019-12-09 20:32:59.306 +05:45 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-12-09 20:32:59.307 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-12-09 20:32:59.307 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-12-09 20:32:59.307 +05:45 [DBG] Start key discovery request
+2019-12-09 20:35:12.620 +05:45 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-12-09 20:35:12.620 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-12-09 20:35:12.620 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-12-09 20:35:12.620 +05:45 [DBG] Start discovery request
+2019-12-09 20:35:12.638 +05:45 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-12-09 20:35:12.638 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-12-09 20:35:12.638 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-12-09 20:35:12.638 +05:45 [DBG] Start key discovery request
+2019-12-09 20:37:34.607 +05:45 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-12-09 20:37:34.607 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-12-09 20:37:34.607 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-12-09 20:37:34.607 +05:45 [DBG] Start discovery request
+2019-12-09 20:37:34.614 +05:45 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-12-09 20:37:34.614 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-12-09 20:37:34.614 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-12-09 20:37:34.614 +05:45 [DBG] Start key discovery request
+2019-12-09 20:42:34.547 +05:45 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-12-09 20:42:34.547 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-12-09 20:42:34.547 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-12-09 20:42:34.547 +05:45 [DBG] Start discovery request
+2019-12-09 20:45:35.281 +05:45 [INF] Starting IdentityServer4 version 2.5.0.0
+2019-12-09 20:45:35.356 +05:45 [INF] You are using the in-memory version of the persisted grant store. This will store consent decisions, authorization codes, refresh and reference tokens in memory only. If you are using any of those features in production, you want to switch to a different store implementation.
+2019-12-09 20:45:35.372 +05:45 [INF] Using the default authentication scheme idsrv for IdentityServer
+2019-12-09 20:45:35.372 +05:45 [DBG] Using idsrv as default ASP.NET Core scheme for authentication
+2019-12-09 20:45:35.372 +05:45 [DBG] Using idsrv as default ASP.NET Core scheme for sign-in
+2019-12-09 20:45:35.372 +05:45 [DBG] Using idsrv as default ASP.NET Core scheme for sign-out
+2019-12-09 20:45:35.372 +05:45 [DBG] Using idsrv as default ASP.NET Core scheme for challenge
+2019-12-09 20:45:35.372 +05:45 [DBG] Using idsrv as default ASP.NET Core scheme for forbid
+2019-12-09 20:45:35.669 +05:45 [DBG] Login Url: /Account/Login
+2019-12-09 20:45:35.671 +05:45 [DBG] Login Return Url Parameter: ReturnUrl
+2019-12-09 20:45:35.671 +05:45 [DBG] Logout Url: /Account/Logout
+2019-12-09 20:45:35.671 +05:45 [DBG] ConsentUrl Url: /consent
+2019-12-09 20:45:35.671 +05:45 [DBG] Consent Return Url Parameter: returnUrl
+2019-12-09 20:45:35.671 +05:45 [DBG] Error Url: /home/error
+2019-12-09 20:45:35.671 +05:45 [DBG] Error Id Parameter: errorId
+2019-12-09 20:45:35.699 +05:45 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-12-09 20:45:35.702 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-12-09 20:45:35.702 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-12-09 20:45:35.705 +05:45 [DBG] Start discovery request
+2019-12-09 20:45:35.823 +05:45 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-12-09 20:45:35.824 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-12-09 20:45:35.824 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-12-09 20:45:35.829 +05:45 [DBG] Start key discovery request
+2019-12-09 20:45:35.979 +05:45 [DBG] Request path /connect/token matched to endpoint type Token
+2019-12-09 20:45:35.984 +05:45 [DBG] Endpoint enabled: Token, successfully created handler: IdentityServer4.Endpoints.TokenEndpoint
+2019-12-09 20:45:35.984 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.TokenEndpoint for /connect/token
+2019-12-09 20:45:35.991 +05:45 [DBG] Start token request.
+2019-12-09 20:45:35.996 +05:45 [DBG] Start client validation
+2019-12-09 20:45:36.001 +05:45 [DBG] Start parsing Basic Authentication secret
+2019-12-09 20:45:36.004 +05:45 [DBG] Start parsing for secret in post body
+2019-12-09 20:45:36.017 +05:45 [DBG] Parser found secret: PostBodySecretParser
+2019-12-09 20:45:36.017 +05:45 [DBG] Secret id found: ipd
+2019-12-09 20:45:36.029 +05:45 [DBG] client configuration validation for client ipd succeeded.
+2019-12-09 20:45:36.037 +05:45 [DBG] Secret validator success: HashedSharedSecretValidator
+2019-12-09 20:45:38.331 +05:45 [DBG] Client validation success
+2019-12-09 20:45:38.372 +05:45 [DBG] Start token request validation
+2019-12-09 20:45:38.388 +05:45 [DBG] Start client credentials token request validation
+2019-12-09 20:45:38.440 +05:45 [DBG] ipd credentials token request validation success
+2019-12-09 20:45:38.468 +05:45 [INF] Token request validation success, {"ClientId":"ipd","ClientName":null,"GrantType":"client_credentials","Scopes":"esign","AuthorizationCode":null,"RefreshToken":null,"UserName":null,"AuthenticationContextReferenceClasses":null,"Tenant":null,"IdP":null,"Raw":{"grant_type":"client_credentials","scope":"esign","client_id":"ipd","client_secret":"***REDACTED***"},"$type":"TokenRequestValidationLog"}
+2019-12-09 20:45:38.532 +05:45 [DBG] Getting claims for access token for client: ipd
+2019-12-09 20:45:38.694 +05:45 [DBG] Token request success.
+2019-12-09 20:45:48.988 +05:45 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-12-09 20:45:48.988 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-12-09 20:45:48.988 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-12-09 20:45:48.989 +05:45 [DBG] Start discovery request
+2019-12-09 20:45:49.097 +05:45 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-12-09 20:45:49.097 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-12-09 20:45:49.097 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-12-09 20:45:49.097 +05:45 [DBG] Start key discovery request
+2019-12-09 20:48:37.918 +05:45 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-12-09 20:48:37.919 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-12-09 20:48:37.919 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-12-09 20:48:37.919 +05:45 [DBG] Start discovery request
+2019-12-09 20:48:37.972 +05:45 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-12-09 20:48:37.972 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-12-09 20:48:37.972 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-12-09 20:48:37.972 +05:45 [DBG] Start key discovery request
+2019-12-09 20:48:38.097 +05:45 [DBG] Request path /connect/token matched to endpoint type Token
+2019-12-09 20:48:38.098 +05:45 [DBG] Endpoint enabled: Token, successfully created handler: IdentityServer4.Endpoints.TokenEndpoint
+2019-12-09 20:48:38.098 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.TokenEndpoint for /connect/token
+2019-12-09 20:48:38.098 +05:45 [DBG] Start token request.
+2019-12-09 20:48:38.098 +05:45 [DBG] Start client validation
+2019-12-09 20:48:38.098 +05:45 [DBG] Start parsing Basic Authentication secret
+2019-12-09 20:48:38.098 +05:45 [DBG] Start parsing for secret in post body
+2019-12-09 20:48:38.098 +05:45 [DBG] Parser found secret: PostBodySecretParser
+2019-12-09 20:48:38.098 +05:45 [DBG] Secret id found: ipd
+2019-12-09 20:48:38.098 +05:45 [DBG] client configuration validation for client ipd succeeded.
+2019-12-09 20:48:38.098 +05:45 [DBG] Secret validator success: HashedSharedSecretValidator
+2019-12-09 20:48:38.098 +05:45 [DBG] Client validation success
+2019-12-09 20:48:38.098 +05:45 [DBG] Start token request validation
+2019-12-09 20:48:38.098 +05:45 [DBG] Start client credentials token request validation
+2019-12-09 20:48:38.099 +05:45 [DBG] ipd credentials token request validation success
+2019-12-09 20:48:38.099 +05:45 [INF] Token request validation success, {"ClientId":"ipd","ClientName":null,"GrantType":"client_credentials","Scopes":"esign","AuthorizationCode":null,"RefreshToken":null,"UserName":null,"AuthenticationContextReferenceClasses":null,"Tenant":null,"IdP":null,"Raw":{"grant_type":"client_credentials","scope":"esign","client_id":"ipd","client_secret":"***REDACTED***"},"$type":"TokenRequestValidationLog"}
+2019-12-09 20:48:38.099 +05:45 [DBG] Getting claims for access token for client: ipd
+2019-12-09 20:48:38.102 +05:45 [DBG] Token request success.
+2019-12-09 20:55:40.789 +05:45 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-12-09 20:55:40.790 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-12-09 20:55:40.790 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-12-09 20:55:40.790 +05:45 [DBG] Start discovery request
+2019-12-09 20:55:40.862 +05:45 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-12-09 20:55:40.862 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-12-09 20:55:40.863 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-12-09 20:55:40.863 +05:45 [DBG] Start key discovery request
+2019-12-09 20:55:40.989 +05:45 [DBG] Request path /connect/token matched to endpoint type Token
+2019-12-09 20:55:40.990 +05:45 [DBG] Endpoint enabled: Token, successfully created handler: IdentityServer4.Endpoints.TokenEndpoint
+2019-12-09 20:55:40.990 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.TokenEndpoint for /connect/token
+2019-12-09 20:55:40.990 +05:45 [DBG] Start token request.
+2019-12-09 20:55:40.990 +05:45 [DBG] Start client validation
+2019-12-09 20:55:40.990 +05:45 [DBG] Start parsing Basic Authentication secret
+2019-12-09 20:55:40.990 +05:45 [DBG] Start parsing for secret in post body
+2019-12-09 20:55:41.009 +05:45 [DBG] Parser found secret: PostBodySecretParser
+2019-12-09 20:55:41.009 +05:45 [DBG] Secret id found: ipd
+2019-12-09 20:55:41.010 +05:45 [DBG] client configuration validation for client ipd succeeded.
+2019-12-09 20:55:41.010 +05:45 [DBG] Secret validator success: HashedSharedSecretValidator
+2019-12-09 20:55:41.010 +05:45 [DBG] Client validation success
+2019-12-09 20:55:41.013 +05:45 [DBG] Start token request validation
+2019-12-09 20:55:41.013 +05:45 [DBG] Start client credentials token request validation
+2019-12-09 20:55:41.013 +05:45 [DBG] ipd credentials token request validation success
+2019-12-09 20:55:41.014 +05:45 [INF] Token request validation success, {"ClientId":"ipd","ClientName":null,"GrantType":"client_credentials","Scopes":"esign","AuthorizationCode":null,"RefreshToken":null,"UserName":null,"AuthenticationContextReferenceClasses":null,"Tenant":null,"IdP":null,"Raw":{"grant_type":"client_credentials","scope":"esign","client_id":"ipd","client_secret":"***REDACTED***"},"$type":"TokenRequestValidationLog"}
+2019-12-09 20:55:41.014 +05:45 [DBG] Getting claims for access token for client: ipd
+2019-12-09 20:55:41.017 +05:45 [DBG] Token request success.
+2019-12-09 20:55:41.047 +05:45 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-12-09 20:55:41.047 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-12-09 20:55:41.047 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-12-09 20:55:41.047 +05:45 [DBG] Start discovery request
+2019-12-09 20:55:41.092 +05:45 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-12-09 20:55:43.785 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-12-09 20:55:43.785 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-12-09 20:55:43.785 +05:45 [DBG] Start key discovery request
+2019-12-09 20:55:59.850 +05:45 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-12-09 20:55:59.851 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-12-09 20:55:59.851 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-12-09 20:55:59.851 +05:45 [DBG] Start discovery request
+2019-12-09 20:55:59.873 +05:45 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-12-09 20:55:59.873 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-12-09 20:55:59.873 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-12-09 20:55:59.873 +05:45 [DBG] Start key discovery request
+2019-12-09 20:59:34.720 +05:45 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-12-09 20:59:34.720 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-12-09 20:59:34.720 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-12-09 20:59:34.720 +05:45 [DBG] Start discovery request
+2019-12-09 20:59:34.796 +05:45 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-12-09 20:59:34.796 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-12-09 20:59:34.796 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-12-09 20:59:34.796 +05:45 [DBG] Start key discovery request
+2019-12-09 20:59:34.934 +05:45 [DBG] Request path /connect/token matched to endpoint type Token
+2019-12-09 20:59:34.934 +05:45 [DBG] Endpoint enabled: Token, successfully created handler: IdentityServer4.Endpoints.TokenEndpoint
+2019-12-09 20:59:34.934 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.TokenEndpoint for /connect/token
+2019-12-09 20:59:34.934 +05:45 [DBG] Start token request.
+2019-12-09 20:59:34.934 +05:45 [DBG] Start client validation
+2019-12-09 20:59:34.934 +05:45 [DBG] Start parsing Basic Authentication secret
+2019-12-09 20:59:34.934 +05:45 [DBG] Start parsing for secret in post body
+2019-12-09 20:59:34.936 +05:45 [DBG] Parser found secret: PostBodySecretParser
+2019-12-09 20:59:34.936 +05:45 [DBG] Secret id found: ipd
+2019-12-09 20:59:34.936 +05:45 [DBG] client configuration validation for client ipd succeeded.
+2019-12-09 20:59:34.936 +05:45 [DBG] Secret validator success: HashedSharedSecretValidator
+2019-12-09 20:59:34.936 +05:45 [DBG] Client validation success
+2019-12-09 20:59:34.936 +05:45 [DBG] Start token request validation
+2019-12-09 20:59:34.936 +05:45 [DBG] Start client credentials token request validation
+2019-12-09 20:59:34.936 +05:45 [DBG] ipd credentials token request validation success
+2019-12-09 20:59:34.936 +05:45 [INF] Token request validation success, {"ClientId":"ipd","ClientName":null,"GrantType":"client_credentials","Scopes":"esign","AuthorizationCode":null,"RefreshToken":null,"UserName":null,"AuthenticationContextReferenceClasses":null,"Tenant":null,"IdP":null,"Raw":{"grant_type":"client_credentials","scope":"esign","client_id":"ipd","client_secret":"***REDACTED***"},"$type":"TokenRequestValidationLog"}
+2019-12-09 20:59:34.936 +05:45 [DBG] Getting claims for access token for client: ipd
+2019-12-09 20:59:34.939 +05:45 [DBG] Token request success.
+2019-12-09 20:59:35.004 +05:45 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-12-09 20:59:35.004 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-12-09 20:59:35.004 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-12-09 20:59:35.004 +05:45 [DBG] Start discovery request
+2019-12-09 20:59:35.183 +05:45 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-12-09 20:59:37.706 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-12-09 20:59:37.706 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-12-09 20:59:37.706 +05:45 [DBG] Start key discovery request
+2019-12-09 20:59:45.569 +05:45 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-12-09 20:59:45.569 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-12-09 20:59:45.569 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-12-09 20:59:45.569 +05:45 [DBG] Start discovery request
+2019-12-09 20:59:45.572 +05:45 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-12-09 20:59:45.572 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-12-09 20:59:45.572 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-12-09 20:59:45.572 +05:45 [DBG] Start key discovery request
+2019-12-09 20:59:50.705 +05:45 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-12-09 20:59:50.705 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-12-09 20:59:50.705 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-12-09 20:59:50.705 +05:45 [DBG] Start discovery request
+2019-12-09 20:59:50.707 +05:45 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-12-09 20:59:50.707 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-12-09 20:59:50.707 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-12-09 20:59:50.708 +05:45 [DBG] Start key discovery request
+2019-12-09 21:01:24.992 +05:45 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-12-09 21:01:24.992 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-12-09 21:01:24.992 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-12-09 21:01:24.992 +05:45 [DBG] Start discovery request
+2019-12-09 21:01:24.998 +05:45 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-12-09 21:01:24.998 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-12-09 21:01:24.998 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-12-09 21:01:24.998 +05:45 [DBG] Start key discovery request
+2019-12-09 21:01:25.033 +05:45 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-12-09 21:01:25.033 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-12-09 21:01:25.033 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-12-09 21:01:25.033 +05:45 [DBG] Start discovery request
+2019-12-09 21:01:25.077 +05:45 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-12-09 21:01:25.077 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-12-09 21:01:25.077 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-12-09 21:01:25.077 +05:45 [DBG] Start key discovery request
+2019-12-09 21:01:34.936 +05:45 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-12-09 21:01:34.936 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-12-09 21:01:34.936 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-12-09 21:01:34.936 +05:45 [DBG] Start discovery request
+2019-12-09 21:01:34.939 +05:45 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-12-09 21:01:34.939 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-12-09 21:01:34.939 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-12-09 21:01:34.939 +05:45 [DBG] Start key discovery request
+2019-12-09 21:03:43.749 +05:45 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-12-09 21:03:43.749 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-12-09 21:03:43.749 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-12-09 21:03:43.749 +05:45 [DBG] Start discovery request
+2019-12-09 21:03:43.755 +05:45 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-12-09 21:03:43.755 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-12-09 21:03:43.756 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-12-09 21:03:43.756 +05:45 [DBG] Start key discovery request
+2019-12-09 21:03:50.004 +05:45 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-12-09 21:03:50.004 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-12-09 21:03:50.004 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-12-09 21:03:50.004 +05:45 [DBG] Start discovery request
+2019-12-09 21:03:50.011 +05:45 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-12-09 21:03:50.011 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-12-09 21:03:50.011 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-12-09 21:03:50.011 +05:45 [DBG] Start key discovery request
+2019-12-09 21:05:09.968 +05:45 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-12-09 21:05:09.968 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-12-09 21:05:09.968 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-12-09 21:05:09.968 +05:45 [DBG] Start discovery request
+2019-12-09 21:05:09.976 +05:45 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-12-09 21:05:09.977 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-12-09 21:05:09.977 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-12-09 21:05:09.977 +05:45 [DBG] Start key discovery request
+2019-12-09 21:05:15.922 +05:45 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-12-09 21:05:15.922 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-12-09 21:05:15.922 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-12-09 21:05:15.922 +05:45 [DBG] Start discovery request
+2019-12-09 21:05:15.927 +05:45 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-12-09 21:05:15.927 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-12-09 21:05:15.927 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-12-09 21:05:15.928 +05:45 [DBG] Start key discovery request
+2019-12-09 21:06:25.039 +05:45 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-12-09 21:06:25.039 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-12-09 21:06:25.039 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-12-09 21:06:25.039 +05:45 [DBG] Start discovery request
+2019-12-09 21:06:25.113 +05:45 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-12-09 21:06:25.113 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-12-09 21:06:25.113 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-12-09 21:06:25.113 +05:45 [DBG] Start key discovery request
+2019-12-09 21:06:25.251 +05:45 [DBG] Request path /connect/token matched to endpoint type Token
+2019-12-09 21:06:25.251 +05:45 [DBG] Endpoint enabled: Token, successfully created handler: IdentityServer4.Endpoints.TokenEndpoint
+2019-12-09 21:06:25.251 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.TokenEndpoint for /connect/token
+2019-12-09 21:06:25.251 +05:45 [DBG] Start token request.
+2019-12-09 21:06:25.251 +05:45 [DBG] Start client validation
+2019-12-09 21:06:25.251 +05:45 [DBG] Start parsing Basic Authentication secret
+2019-12-09 21:06:25.252 +05:45 [DBG] Start parsing for secret in post body
+2019-12-09 21:06:25.252 +05:45 [DBG] Parser found secret: PostBodySecretParser
+2019-12-09 21:06:25.252 +05:45 [DBG] Secret id found: ipd
+2019-12-09 21:06:25.252 +05:45 [DBG] client configuration validation for client ipd succeeded.
+2019-12-09 21:06:25.252 +05:45 [DBG] Secret validator success: HashedSharedSecretValidator
+2019-12-09 21:06:25.252 +05:45 [DBG] Client validation success
+2019-12-09 21:06:25.253 +05:45 [DBG] Start token request validation
+2019-12-09 21:06:25.253 +05:45 [DBG] Start client credentials token request validation
+2019-12-09 21:06:25.253 +05:45 [DBG] ipd credentials token request validation success
+2019-12-09 21:06:25.253 +05:45 [INF] Token request validation success, {"ClientId":"ipd","ClientName":null,"GrantType":"client_credentials","Scopes":"esign","AuthorizationCode":null,"RefreshToken":null,"UserName":null,"AuthenticationContextReferenceClasses":null,"Tenant":null,"IdP":null,"Raw":{"grant_type":"client_credentials","scope":"esign","client_id":"ipd","client_secret":"***REDACTED***"},"$type":"TokenRequestValidationLog"}
+2019-12-09 21:06:25.253 +05:45 [DBG] Getting claims for access token for client: ipd
+2019-12-09 21:06:25.256 +05:45 [DBG] Token request success.
+2019-12-09 21:06:25.399 +05:45 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-12-09 21:06:25.399 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-12-09 21:06:25.399 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-12-09 21:06:25.399 +05:45 [DBG] Start discovery request
+2019-12-09 21:06:25.692 +05:45 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-12-09 21:06:28.034 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-12-09 21:06:28.034 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-12-09 21:06:28.034 +05:45 [DBG] Start key discovery request
+2019-12-09 21:06:42.657 +05:45 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-12-09 21:06:42.658 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-12-09 21:06:42.658 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-12-09 21:06:42.658 +05:45 [DBG] Start discovery request
+2019-12-09 21:06:42.662 +05:45 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-12-09 21:06:42.663 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-12-09 21:06:42.663 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-12-09 21:06:42.663 +05:45 [DBG] Start key discovery request
+2019-12-09 21:06:51.651 +05:45 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-12-09 21:06:51.651 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-12-09 21:06:51.651 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-12-09 21:06:51.651 +05:45 [DBG] Start discovery request
+2019-12-09 21:06:51.654 +05:45 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-12-09 21:06:51.654 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-12-09 21:06:51.654 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-12-09 21:06:51.654 +05:45 [DBG] Start key discovery request
+2019-12-09 21:08:08.292 +05:45 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-12-09 21:08:08.292 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-12-09 21:08:08.292 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-12-09 21:08:08.292 +05:45 [DBG] Start discovery request
+2019-12-09 21:08:08.300 +05:45 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-12-09 21:08:08.300 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-12-09 21:08:08.300 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-12-09 21:08:08.300 +05:45 [DBG] Start key discovery request
+2019-12-09 21:08:11.875 +05:45 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-12-09 21:08:11.876 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-12-09 21:08:11.876 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-12-09 21:08:11.876 +05:45 [DBG] Start discovery request
+2019-12-09 21:08:11.878 +05:45 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-12-09 21:08:11.879 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-12-09 21:08:11.879 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-12-09 21:08:11.879 +05:45 [DBG] Start key discovery request
+2019-12-09 21:10:03.490 +05:45 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-12-09 21:10:03.490 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-12-09 21:10:03.490 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-12-09 21:10:03.490 +05:45 [DBG] Start discovery request
+2019-12-09 21:10:03.495 +05:45 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-12-09 21:10:03.495 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-12-09 21:10:03.495 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-12-09 21:10:03.495 +05:45 [DBG] Start key discovery request
+2019-12-09 21:10:05.106 +05:45 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-12-09 21:10:05.106 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-12-09 21:10:05.106 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-12-09 21:10:05.106 +05:45 [DBG] Start discovery request
+2019-12-09 21:10:05.109 +05:45 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-12-09 21:10:05.109 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-12-09 21:10:05.109 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-12-09 21:10:05.109 +05:45 [DBG] Start key discovery request
+2019-12-09 21:11:07.215 +05:45 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-12-09 21:11:07.215 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-12-09 21:11:07.216 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-12-09 21:11:07.216 +05:45 [DBG] Start discovery request
+2019-12-09 21:11:07.223 +05:45 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-12-09 21:11:07.223 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-12-09 21:11:07.223 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-12-09 21:11:07.223 +05:45 [DBG] Start key discovery request
+2019-12-09 21:11:15.103 +05:45 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-12-09 21:11:15.103 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-12-09 21:11:15.103 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-12-09 21:11:15.103 +05:45 [DBG] Start discovery request
+2019-12-09 21:11:15.105 +05:45 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-12-09 21:11:15.105 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-12-09 21:11:15.105 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-12-09 21:11:15.106 +05:45 [DBG] Start key discovery request
+2019-12-09 21:16:32.392 +05:45 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-12-09 21:16:32.392 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-12-09 21:16:32.392 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-12-09 21:16:32.392 +05:45 [DBG] Start discovery request
+2019-12-09 21:16:32.448 +05:45 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-12-09 21:16:32.448 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-12-09 21:16:32.448 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-12-09 21:16:32.448 +05:45 [DBG] Start key discovery request
+2019-12-09 21:16:32.567 +05:45 [DBG] Request path /connect/token matched to endpoint type Token
+2019-12-09 21:16:32.567 +05:45 [DBG] Endpoint enabled: Token, successfully created handler: IdentityServer4.Endpoints.TokenEndpoint
+2019-12-09 21:16:32.567 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.TokenEndpoint for /connect/token
+2019-12-09 21:16:32.567 +05:45 [DBG] Start token request.
+2019-12-09 21:16:32.567 +05:45 [DBG] Start client validation
+2019-12-09 21:16:32.567 +05:45 [DBG] Start parsing Basic Authentication secret
+2019-12-09 21:16:32.567 +05:45 [DBG] Start parsing for secret in post body
+2019-12-09 21:16:32.568 +05:45 [DBG] Parser found secret: PostBodySecretParser
+2019-12-09 21:16:32.568 +05:45 [DBG] Secret id found: ipd
+2019-12-09 21:16:32.568 +05:45 [DBG] client configuration validation for client ipd succeeded.
+2019-12-09 21:16:32.568 +05:45 [DBG] Secret validator success: HashedSharedSecretValidator
+2019-12-09 21:16:32.568 +05:45 [DBG] Client validation success
+2019-12-09 21:16:32.568 +05:45 [DBG] Start token request validation
+2019-12-09 21:16:32.568 +05:45 [DBG] Start client credentials token request validation
+2019-12-09 21:16:32.568 +05:45 [DBG] ipd credentials token request validation success
+2019-12-09 21:16:32.568 +05:45 [INF] Token request validation success, {"ClientId":"ipd","ClientName":null,"GrantType":"client_credentials","Scopes":"esign","AuthorizationCode":null,"RefreshToken":null,"UserName":null,"AuthenticationContextReferenceClasses":null,"Tenant":null,"IdP":null,"Raw":{"grant_type":"client_credentials","scope":"esign","client_id":"ipd","client_secret":"***REDACTED***"},"$type":"TokenRequestValidationLog"}
+2019-12-09 21:16:32.568 +05:45 [DBG] Getting claims for access token for client: ipd
+2019-12-09 21:16:32.571 +05:45 [DBG] Token request success.
+2019-12-09 21:16:33.495 +05:45 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-12-09 21:16:33.495 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-12-09 21:16:33.495 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-12-09 21:16:33.495 +05:45 [DBG] Start discovery request
+2019-12-09 21:16:33.678 +05:45 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-12-09 21:16:35.377 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-12-09 21:16:35.377 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-12-09 21:16:35.377 +05:45 [DBG] Start key discovery request
+2019-12-09 21:16:41.120 +05:45 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-12-09 21:16:41.120 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-12-09 21:16:41.120 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-12-09 21:16:41.120 +05:45 [DBG] Start discovery request
+2019-12-09 21:16:41.125 +05:45 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-12-09 21:16:41.125 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-12-09 21:16:41.125 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-12-09 21:16:41.125 +05:45 [DBG] Start key discovery request
+2019-12-09 21:16:43.996 +05:45 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-12-09 21:16:43.996 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-12-09 21:16:43.996 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-12-09 21:16:43.996 +05:45 [DBG] Start discovery request
+2019-12-09 21:16:43.998 +05:45 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-12-09 21:16:43.999 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-12-09 21:16:43.999 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-12-09 21:16:43.999 +05:45 [DBG] Start key discovery request
+2019-12-09 21:17:39.697 +05:45 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-12-09 21:17:39.697 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-12-09 21:17:39.697 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-12-09 21:17:39.697 +05:45 [DBG] Start discovery request
+2019-12-09 21:17:39.747 +05:45 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-12-09 21:17:39.748 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-12-09 21:17:39.748 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-12-09 21:17:39.748 +05:45 [DBG] Start key discovery request
+2019-12-09 21:18:02.499 +05:45 [DBG] Request path /connect/token matched to endpoint type Token
+2019-12-09 21:18:02.499 +05:45 [DBG] Endpoint enabled: Token, successfully created handler: IdentityServer4.Endpoints.TokenEndpoint
+2019-12-09 21:18:02.499 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.TokenEndpoint for /connect/token
+2019-12-09 21:18:02.499 +05:45 [DBG] Start token request.
+2019-12-09 21:18:02.499 +05:45 [DBG] Start client validation
+2019-12-09 21:18:02.499 +05:45 [DBG] Start parsing Basic Authentication secret
+2019-12-09 21:18:02.499 +05:45 [DBG] Start parsing for secret in post body
+2019-12-09 21:18:02.500 +05:45 [DBG] Parser found secret: PostBodySecretParser
+2019-12-09 21:18:02.500 +05:45 [DBG] Secret id found: ipd
+2019-12-09 21:18:02.500 +05:45 [DBG] client configuration validation for client ipd succeeded.
+2019-12-09 21:18:02.500 +05:45 [DBG] Secret validator success: HashedSharedSecretValidator
+2019-12-09 21:18:02.500 +05:45 [DBG] Client validation success
+2019-12-09 21:18:02.500 +05:45 [DBG] Start token request validation
+2019-12-09 21:18:02.500 +05:45 [DBG] Start client credentials token request validation
+2019-12-09 21:18:02.501 +05:45 [DBG] ipd credentials token request validation success
+2019-12-09 21:18:02.501 +05:45 [INF] Token request validation success, {"ClientId":"ipd","ClientName":null,"GrantType":"client_credentials","Scopes":"esign","AuthorizationCode":null,"RefreshToken":null,"UserName":null,"AuthenticationContextReferenceClasses":null,"Tenant":null,"IdP":null,"Raw":{"grant_type":"client_credentials","scope":"esign","client_id":"ipd","client_secret":"***REDACTED***"},"$type":"TokenRequestValidationLog"}
+2019-12-09 21:18:02.501 +05:45 [DBG] Getting claims for access token for client: ipd
+2019-12-09 21:18:02.503 +05:45 [DBG] Token request success.
+2019-12-09 21:18:06.446 +05:45 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-12-09 21:18:06.446 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-12-09 21:18:06.446 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-12-09 21:18:06.446 +05:45 [DBG] Start discovery request
+2019-12-09 21:18:06.449 +05:45 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-12-09 21:18:06.449 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-12-09 21:18:06.449 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-12-09 21:18:06.449 +05:45 [DBG] Start key discovery request
+2019-12-09 21:18:15.472 +05:45 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-12-09 21:18:15.472 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-12-09 21:18:15.472 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-12-09 21:19:23.378 +05:45 [DBG] Start discovery request
+2019-12-09 21:19:23.393 +05:45 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-12-09 21:19:23.393 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-12-09 21:19:23.393 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-12-09 21:19:23.394 +05:45 [DBG] Start key discovery request
+2019-12-09 21:19:23.424 +05:45 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-12-09 21:19:23.424 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-12-09 21:19:23.424 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-12-09 21:19:23.424 +05:45 [DBG] Start discovery request
+2019-12-09 21:19:23.431 +05:45 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-12-09 21:19:23.431 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-12-09 21:19:23.431 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-12-09 21:19:23.431 +05:45 [DBG] Start key discovery request
+2019-12-09 21:19:34.056 +05:45 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-12-09 21:19:34.056 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-12-09 21:19:34.056 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-12-09 21:19:34.056 +05:45 [DBG] Start discovery request
+2019-12-09 21:19:34.059 +05:45 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-12-09 21:19:34.059 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-12-09 21:19:34.059 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-12-09 21:19:34.059 +05:45 [DBG] Start key discovery request
+2019-12-09 21:19:59.881 +05:45 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-12-09 21:19:59.882 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-12-09 21:19:59.882 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-12-09 21:19:59.882 +05:45 [DBG] Start discovery request
+2019-12-09 21:20:00.173 +05:45 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-12-09 21:20:00.173 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-12-09 21:20:00.173 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-12-09 21:20:34.158 +05:45 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-12-09 21:20:51.377 +05:45 [DBG] Start key discovery request
+2019-12-09 21:20:51.377 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-12-09 21:20:51.377 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-12-09 21:20:51.377 +05:45 [DBG] Start discovery request
+2019-12-09 21:20:51.380 +05:45 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-12-09 21:20:51.381 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-12-09 21:20:51.381 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-12-09 21:20:51.381 +05:45 [DBG] Start key discovery request
+2019-12-09 21:21:04.093 +05:45 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-12-09 21:21:04.093 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-12-09 21:21:04.093 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-12-09 21:21:04.093 +05:45 [DBG] Start discovery request
+2019-12-09 21:21:04.097 +05:45 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-12-09 21:21:04.097 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-12-09 21:21:04.097 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-12-09 21:21:04.097 +05:45 [DBG] Start key discovery request
+2019-12-09 21:38:05.104 +05:45 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-12-09 21:38:05.104 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-12-09 21:38:05.104 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-12-09 21:38:05.104 +05:45 [DBG] Start discovery request
+2019-12-09 21:38:05.251 +05:45 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-12-09 21:38:05.251 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-12-09 21:38:05.251 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-12-09 21:38:05.251 +05:45 [DBG] Start key discovery request
+2019-12-09 21:38:05.386 +05:45 [DBG] Request path /connect/token matched to endpoint type Token
+2019-12-09 21:38:05.386 +05:45 [DBG] Endpoint enabled: Token, successfully created handler: IdentityServer4.Endpoints.TokenEndpoint
+2019-12-09 21:38:05.386 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.TokenEndpoint for /connect/token
+2019-12-09 21:38:05.386 +05:45 [DBG] Start token request.
+2019-12-09 21:38:05.386 +05:45 [DBG] Start client validation
+2019-12-09 21:38:05.386 +05:45 [DBG] Start parsing Basic Authentication secret
+2019-12-09 21:38:05.386 +05:45 [DBG] Start parsing for secret in post body
+2019-12-09 21:38:05.387 +05:45 [DBG] Parser found secret: PostBodySecretParser
+2019-12-09 21:38:05.387 +05:45 [DBG] Secret id found: ipd
+2019-12-09 21:38:05.387 +05:45 [DBG] client configuration validation for client ipd succeeded.
+2019-12-09 21:38:05.387 +05:45 [DBG] Secret validator success: HashedSharedSecretValidator
+2019-12-09 21:38:05.387 +05:45 [DBG] Client validation success
+2019-12-09 21:38:05.387 +05:45 [DBG] Start token request validation
+2019-12-09 21:38:05.387 +05:45 [DBG] Start client credentials token request validation
+2019-12-09 21:38:05.387 +05:45 [DBG] ipd credentials token request validation success
+2019-12-09 21:38:05.387 +05:45 [INF] Token request validation success, {"ClientId":"ipd","ClientName":null,"GrantType":"client_credentials","Scopes":"esign","AuthorizationCode":null,"RefreshToken":null,"UserName":null,"AuthenticationContextReferenceClasses":null,"Tenant":null,"IdP":null,"Raw":{"grant_type":"client_credentials","scope":"esign","client_id":"ipd","client_secret":"***REDACTED***"},"$type":"TokenRequestValidationLog"}
+2019-12-09 21:38:05.387 +05:45 [DBG] Getting claims for access token for client: ipd
+2019-12-09 21:38:05.390 +05:45 [DBG] Token request success.
+2019-12-09 21:38:07.957 +05:45 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-12-09 21:38:07.957 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-12-09 21:38:07.957 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-12-09 21:38:07.957 +05:45 [DBG] Start discovery request
+2019-12-09 21:38:08.181 +05:45 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-12-09 21:38:08.181 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-12-09 21:38:08.181 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-12-09 21:38:08.181 +05:45 [DBG] Start key discovery request
+2019-12-09 21:38:57.610 +05:45 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-12-09 21:38:57.610 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-12-09 21:38:57.610 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-12-09 21:38:57.610 +05:45 [DBG] Start discovery request
+2019-12-09 21:38:57.615 +05:45 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-12-09 21:38:57.615 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-12-09 21:38:57.615 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-12-09 21:38:57.615 +05:45 [DBG] Start key discovery request
+2019-12-09 21:39:14.477 +05:45 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-12-09 21:39:14.477 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-12-09 21:39:14.477 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-12-09 21:39:14.477 +05:45 [DBG] Start discovery request
+2019-12-09 21:39:14.485 +05:45 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-12-09 21:39:14.485 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-12-09 21:39:14.485 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-12-09 21:39:14.485 +05:45 [DBG] Start key discovery request
+2019-12-09 21:41:09.696 +05:45 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-12-09 21:41:09.696 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-12-09 21:41:09.696 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-12-09 21:41:09.696 +05:45 [DBG] Start discovery request
+2019-12-09 21:41:09.702 +05:45 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-12-09 21:41:09.702 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-12-09 21:41:09.702 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-12-09 21:41:09.702 +05:45 [DBG] Start key discovery request
+2019-12-09 21:43:37.705 +05:45 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-12-09 21:43:37.705 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-12-09 21:43:37.705 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-12-09 21:43:37.705 +05:45 [DBG] Start discovery request
+2019-12-09 21:43:37.713 +05:45 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-12-09 21:43:37.713 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-12-09 21:43:37.713 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-12-09 21:43:37.713 +05:45 [DBG] Start key discovery request
+2019-12-09 21:52:45.054 +05:45 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-12-09 21:52:45.054 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-12-09 21:52:45.054 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-12-09 21:52:45.054 +05:45 [DBG] Start discovery request
+2019-12-09 21:52:45.101 +05:45 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-12-09 21:52:45.101 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-12-09 21:52:45.102 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-12-09 21:52:45.102 +05:45 [DBG] Start key discovery request
+2019-12-09 21:52:45.220 +05:45 [DBG] Request path /connect/token matched to endpoint type Token
+2019-12-09 21:52:45.220 +05:45 [DBG] Endpoint enabled: Token, successfully created handler: IdentityServer4.Endpoints.TokenEndpoint
+2019-12-09 21:52:45.221 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.TokenEndpoint for /connect/token
+2019-12-09 21:52:45.221 +05:45 [DBG] Start token request.
+2019-12-09 21:52:45.221 +05:45 [DBG] Start client validation
+2019-12-09 21:52:45.221 +05:45 [DBG] Start parsing Basic Authentication secret
+2019-12-09 21:52:45.221 +05:45 [DBG] Start parsing for secret in post body
+2019-12-09 21:52:45.221 +05:45 [DBG] Parser found secret: PostBodySecretParser
+2019-12-09 21:52:45.221 +05:45 [DBG] Secret id found: ipd
+2019-12-09 21:52:45.221 +05:45 [DBG] client configuration validation for client ipd succeeded.
+2019-12-09 21:52:45.221 +05:45 [DBG] Secret validator success: HashedSharedSecretValidator
+2019-12-09 21:52:45.221 +05:45 [DBG] Client validation success
+2019-12-09 21:52:45.221 +05:45 [DBG] Start token request validation
+2019-12-09 21:52:45.221 +05:45 [DBG] Start client credentials token request validation
+2019-12-09 21:52:45.221 +05:45 [DBG] ipd credentials token request validation success
+2019-12-09 21:52:45.222 +05:45 [INF] Token request validation success, {"ClientId":"ipd","ClientName":null,"GrantType":"client_credentials","Scopes":"esign","AuthorizationCode":null,"RefreshToken":null,"UserName":null,"AuthenticationContextReferenceClasses":null,"Tenant":null,"IdP":null,"Raw":{"grant_type":"client_credentials","scope":"esign","client_id":"ipd","client_secret":"***REDACTED***"},"$type":"TokenRequestValidationLog"}
+2019-12-09 21:52:45.222 +05:45 [DBG] Getting claims for access token for client: ipd
+2019-12-09 21:52:45.224 +05:45 [DBG] Token request success.
+2019-12-09 21:52:45.316 +05:45 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-12-09 21:52:45.317 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-12-09 21:52:45.317 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-12-09 21:52:45.317 +05:45 [DBG] Start discovery request
+2019-12-09 21:52:45.570 +05:45 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-12-09 21:52:48.052 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-12-09 21:52:48.052 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-12-09 21:52:48.052 +05:45 [DBG] Start key discovery request
+2019-12-09 21:52:52.971 +05:45 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-12-09 21:52:52.971 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-12-09 21:52:52.971 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-12-09 21:52:52.971 +05:45 [DBG] Start discovery request
+2019-12-09 21:52:52.974 +05:45 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-12-09 21:52:52.974 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-12-09 21:52:52.974 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-12-09 21:52:52.974 +05:45 [DBG] Start key discovery request
+2019-12-09 21:53:00.776 +05:45 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-12-09 21:53:00.776 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-12-09 21:53:00.776 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-12-09 21:53:00.776 +05:45 [DBG] Start discovery request
+2019-12-09 21:53:00.779 +05:45 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-12-09 21:53:00.779 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-12-09 21:53:00.779 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-12-09 21:53:00.779 +05:45 [DBG] Start key discovery request
+2019-12-09 21:54:38.512 +05:45 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-12-09 21:54:38.513 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-12-09 21:54:38.513 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-12-09 21:54:38.513 +05:45 [DBG] Start discovery request
+2019-12-09 21:54:38.517 +05:45 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-12-09 21:54:38.517 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-12-09 21:54:38.517 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-12-09 21:54:38.517 +05:45 [DBG] Start key discovery request
+2019-12-09 21:55:10.946 +05:45 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-12-09 21:55:10.946 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-12-09 21:55:10.946 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-12-09 21:55:10.946 +05:45 [DBG] Start discovery request
+2019-12-09 21:55:10.950 +05:45 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-12-09 21:55:10.950 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-12-09 21:55:10.950 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-12-09 21:55:10.950 +05:45 [DBG] Start key discovery request
+2019-12-09 21:55:32.170 +05:45 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-12-09 21:55:32.170 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-12-09 21:55:32.170 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-12-09 21:55:32.170 +05:45 [DBG] Start discovery request
+2019-12-09 21:55:32.174 +05:45 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-12-09 21:55:32.174 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-12-09 21:55:32.174 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-12-09 21:55:32.174 +05:45 [DBG] Start key discovery request
+2019-12-09 22:03:18.918 +05:45 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-12-09 22:03:18.918 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-12-09 22:03:18.918 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-12-09 22:03:18.918 +05:45 [DBG] Start discovery request
+2019-12-09 22:03:18.922 +05:45 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-12-09 22:03:18.922 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-12-09 22:03:18.922 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-12-09 22:03:18.922 +05:45 [DBG] Start key discovery request
+2019-12-09 22:05:45.726 +05:45 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-12-09 22:05:45.727 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-12-09 22:05:45.727 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-12-09 22:05:45.727 +05:45 [DBG] Start discovery request
+2019-12-09 22:05:45.731 +05:45 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-12-09 22:05:45.731 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-12-09 22:05:45.731 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-12-09 22:05:45.731 +05:45 [DBG] Start key discovery request
+2019-12-10 00:00:30.097 +05:45 [INF] Starting IdentityServer4 version 2.5.0.0
+2019-12-10 00:00:30.135 +05:45 [INF] You are using the in-memory version of the persisted grant store. This will store consent decisions, authorization codes, refresh and reference tokens in memory only. If you are using any of those features in production, you want to switch to a different store implementation.
+2019-12-10 00:00:30.142 +05:45 [INF] Using the default authentication scheme idsrv for IdentityServer
+2019-12-10 00:00:30.143 +05:45 [DBG] Using idsrv as default ASP.NET Core scheme for authentication
+2019-12-10 00:00:30.143 +05:45 [DBG] Using idsrv as default ASP.NET Core scheme for sign-in
+2019-12-10 00:00:30.143 +05:45 [DBG] Using idsrv as default ASP.NET Core scheme for sign-out
+2019-12-10 00:00:30.143 +05:45 [DBG] Using idsrv as default ASP.NET Core scheme for challenge
+2019-12-10 00:00:30.143 +05:45 [DBG] Using idsrv as default ASP.NET Core scheme for forbid
+2019-12-10 00:00:30.281 +05:45 [DBG] Login Url: /Account/Login
+2019-12-10 00:00:30.283 +05:45 [DBG] Login Return Url Parameter: ReturnUrl
+2019-12-10 00:00:30.283 +05:45 [DBG] Logout Url: /Account/Logout
+2019-12-10 00:00:30.283 +05:45 [DBG] ConsentUrl Url: /consent
+2019-12-10 00:00:30.283 +05:45 [DBG] Consent Return Url Parameter: returnUrl
+2019-12-10 00:00:30.283 +05:45 [DBG] Error Url: /home/error
+2019-12-10 00:00:30.283 +05:45 [DBG] Error Id Parameter: errorId
+2019-12-10 00:00:30.307 +05:45 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-12-10 00:00:30.309 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-12-10 00:00:30.310 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-12-10 00:00:30.312 +05:45 [DBG] Start discovery request
+2019-12-10 00:00:30.404 +05:45 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-12-10 00:00:30.405 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-12-10 00:00:30.405 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-12-10 00:00:30.408 +05:45 [DBG] Start key discovery request
+2019-12-10 00:00:30.537 +05:45 [DBG] Request path /connect/token matched to endpoint type Token
+2019-12-10 00:00:30.543 +05:45 [DBG] Endpoint enabled: Token, successfully created handler: IdentityServer4.Endpoints.TokenEndpoint
+2019-12-10 00:00:30.543 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.TokenEndpoint for /connect/token
+2019-12-10 00:00:30.550 +05:45 [DBG] Start token request.
+2019-12-10 00:00:30.555 +05:45 [DBG] Start client validation
+2019-12-10 00:00:30.560 +05:45 [DBG] Start parsing Basic Authentication secret
+2019-12-10 00:00:30.564 +05:45 [DBG] Start parsing for secret in post body
+2019-12-10 00:00:30.579 +05:45 [DBG] Parser found secret: PostBodySecretParser
+2019-12-10 00:00:30.580 +05:45 [DBG] Secret id found: ipd
+2019-12-10 00:00:30.594 +05:45 [DBG] client configuration validation for client ipd succeeded.
+2019-12-10 00:00:30.602 +05:45 [DBG] Secret validator success: HashedSharedSecretValidator
+2019-12-10 00:00:33.127 +05:45 [DBG] Client validation success
+2019-12-10 00:00:33.140 +05:45 [DBG] Start token request validation
+2019-12-10 00:00:33.147 +05:45 [DBG] Start client credentials token request validation
+2019-12-10 00:00:33.174 +05:45 [DBG] ipd credentials token request validation success
+2019-12-10 00:00:33.189 +05:45 [INF] Token request validation success, {"ClientId":"ipd","ClientName":null,"GrantType":"client_credentials","Scopes":"esign","AuthorizationCode":null,"RefreshToken":null,"UserName":null,"AuthenticationContextReferenceClasses":null,"Tenant":null,"IdP":null,"Raw":{"grant_type":"client_credentials","scope":"esign","client_id":"ipd","client_secret":"***REDACTED***"},"$type":"TokenRequestValidationLog"}
+2019-12-10 00:00:33.222 +05:45 [DBG] Getting claims for access token for client: ipd
+2019-12-10 00:00:33.288 +05:45 [DBG] Token request success.
+2019-12-10 00:00:33.420 +05:45 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-12-10 00:00:33.420 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-12-10 00:00:33.420 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-12-10 00:00:33.420 +05:45 [DBG] Start discovery request
+2019-12-10 00:00:33.644 +05:45 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-12-10 00:00:33.644 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-12-10 00:00:33.644 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-12-10 00:00:33.644 +05:45 [DBG] Start key discovery request
+2019-12-10 00:00:39.473 +05:45 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-12-10 00:00:39.473 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-12-10 00:00:39.473 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-12-10 00:00:39.473 +05:45 [DBG] Start discovery request
+2019-12-10 00:00:39.475 +05:45 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-12-10 00:00:39.475 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-12-10 00:00:39.475 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-12-10 00:00:39.475 +05:45 [DBG] Start key discovery request
+2019-12-10 00:00:51.043 +05:45 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-12-10 00:00:51.043 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-12-10 00:00:51.043 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-12-10 00:00:51.043 +05:45 [DBG] Start discovery request
+2019-12-10 00:02:14.140 +05:45 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-12-10 00:02:14.140 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-12-10 00:02:14.140 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-12-10 00:02:14.141 +05:45 [DBG] Start key discovery request
+2019-12-10 00:03:07.461 +05:45 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-12-10 00:03:07.461 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-12-10 00:03:07.461 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-12-10 00:03:07.461 +05:45 [DBG] Start discovery request
+2019-12-10 00:03:07.463 +05:45 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-12-10 00:03:07.463 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-12-10 00:03:07.463 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-12-10 00:03:07.463 +05:45 [DBG] Start key discovery request
+2019-12-10 00:03:07.522 +05:45 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-12-10 00:03:07.522 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-12-10 00:03:07.523 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-12-10 00:03:07.523 +05:45 [DBG] Start discovery request
+2019-12-10 00:03:07.687 +05:45 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-12-10 00:03:07.688 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-12-10 00:03:07.688 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-12-10 00:03:07.688 +05:45 [DBG] Start key discovery request
+2019-12-10 00:03:12.677 +05:45 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-12-10 00:03:12.677 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-12-10 00:03:12.677 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-12-10 00:03:12.677 +05:45 [DBG] Start discovery request
+2019-12-10 00:03:12.683 +05:45 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-12-10 00:03:12.683 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-12-10 00:03:12.683 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-12-10 00:03:34.129 +05:45 [DBG] Start key discovery request
+2019-12-10 00:04:08.464 +05:45 [DBG] Request path /.well-known/openid-configuration matched to endpoint type Discovery
+2019-12-10 00:04:08.464 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryEndpoint
+2019-12-10 00:04:08.464 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2019-12-10 00:04:08.464 +05:45 [DBG] Start discovery request
+2019-12-10 00:04:08.467 +05:45 [DBG] Request path /.well-known/openid-configuration/jwks matched to endpoint type Discovery
+2019-12-10 00:04:08.467 +05:45 [DBG] Endpoint enabled: Discovery, successfully created handler: IdentityServer4.Endpoints.DiscoveryKeyEndpoint
+2019-12-10 00:04:08.467 +05:45 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2019-12-10 00:04:08.467 +05:45 [DBG] Start key discovery request

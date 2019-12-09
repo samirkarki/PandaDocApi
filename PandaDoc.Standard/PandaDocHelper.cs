@@ -4,6 +4,7 @@ using PandaDoc.Models.GetDocument;
 using PandaDoc.Models.SendDocument;
 using System.Collections.Generic;
 using System.Net.Http;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace PandaDoc.Standard
@@ -50,6 +51,7 @@ namespace PandaDoc.Standard
                         Message = "Please sign this document",
                         Silent = document.DisableEmail
                     };
+                    Thread.Sleep(3000);
                     var sendDocResponse = await client.SendDocument(response.Uuid, sendRequest);
 
                     var detailResponse = client.GetDocumentDetail(response.Uuid);
@@ -60,10 +62,13 @@ namespace PandaDoc.Standard
             }
         }
 
-        public async Task<ShareDocumentResponse> ShareDocument(string documentId, string shareDocumentRequest)
+        public async Task<ShareDocumentResponse> ShareDocument(string documentId, string recipientEmail)
         {
-            var shareRequest = JsonConvert.DeserializeObject<ShareDocumentRequest>(shareDocumentRequest);
-            shareRequest.LifeTime = ESignConfig.DocumentLifetime;
+            var shareRequest = new ShareDocumentRequest
+            {
+                Recipient = recipientEmail,
+                LifeTime = ESignConfig.DocumentLifetime
+            };
             using (var client = SetApiKey())
             {
                 return await client.ShareDocument(documentId, shareRequest);

@@ -6,6 +6,7 @@ using PandaDoc.Models.CreateDocument;
 using PandaDoc.Models.SendDocument;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
@@ -74,10 +75,12 @@ namespace Client
             //    var content = response.Content.ReadAsStringAsync().Result;
             //    apiresult.InnerText = content;
             //}
-
-            EsignApiClient esignClient = new EsignApiClient();
-            var response = esignClient.GetDocuments().Result;
-            gv_documents.DataSource = response.Results;
+            if (!IsPostBack)
+            {
+                EsignApiClient esignClient = new EsignApiClient();
+                var response = esignClient.GetDocuments();
+                gv_documents.DataSource = response.Results;
+            }
 
         }
 
@@ -108,7 +111,8 @@ namespace Client
                 Fields = new Dictionary<string, Field>
                 {
                     {"optId", new Field {Title = "Field 1"}}
-                }
+                },
+                DisableEmail = true
             };
         }
 
@@ -118,13 +122,15 @@ namespace Client
             byte[] fileContent = File.ReadAllBytes("D:\\panda.pdf");
             var docRequest = CreateDocumentRequest();
             var response = esignClient.UploadDocument(fileContent, docRequest);
-            gv_documents.DataSource = response;
+            txt_documentid.Text = response.id;
         }
 
         protected void btn_share_Click(object sender, EventArgs e)
         {
             EsignApiClient esignClient = new EsignApiClient();
-            var response = esignClient.ShareDocument(txt_documentid.Text, txt_email.Text);
+            var response = esignClient.ShareDocument(txt_documentid.Text, txt_email.Text).Result;
+            iframe_doc.Src = ConfigurationManager.AppSettings["PandadocIframeUrl"] + response.id;
+
         }
     }
 }
