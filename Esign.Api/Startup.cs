@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using PandaDoc.Standard;
 
 namespace Esign.Api
 {
@@ -29,14 +30,22 @@ namespace Esign.Api
                 .AddAuthorization()
                 .AddJsonFormatters();
 
+            var eSignConfig = Configuration.GetSection("ESignConfig");
+            var idServer = Configuration.GetSection("IDServer");
+
+            ESignConfig.PandaDocApiKey = eSignConfig["PandaDocApiKey"];
+            ESignConfig.PandaDocAuthUrl = eSignConfig["PandaDocAuthUrl"];
+            ESignConfig.PandaDocApiUrl = eSignConfig["PandaDocApiUrl"];
+            IDServer.Url= idServer["Url"];
+            IDServer.Audience= idServer["Audience"];
+            
             services.AddAuthentication("Bearer")
                 .AddJwtBearer("Bearer", options =>
                 {
-                    options.Authority = "http://localhost:5000";
+                    options.Authority = IDServer.Url;
                     options.RequireHttpsMetadata = false;
-                    options.Audience = "esign";
+                    options.Audience = IDServer.Audience;
                 });
-            services.Configure<AppData>(Configuration.GetSection("AppData"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

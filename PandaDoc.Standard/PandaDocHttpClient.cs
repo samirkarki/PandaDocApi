@@ -17,36 +17,18 @@ namespace PandaDoc.Standard
 {
     public class PandaDocHttpClient : IDisposable
     {
-        private PandaDocHttpClientSettings settings;
         private HttpClient httpClient;
         //private JsonMediaTypeFormatter jsonFormatter;
         private PandaDocBearerToken bearerToken;
-
+        
         public PandaDocHttpClient()
-            : this(new PandaDocHttpClientSettings())
         {
-        }
-
-        public PandaDocHttpClient(PandaDocHttpClientSettings settings)
-        {
-            Settings = settings;
             HttpClient = new HttpClient();
-            //JsonFormatter = new JsonMediaTypeFormatter();
         }
 
         public void Dispose()
         {
             httpClient.Dispose();
-        }
-
-        public PandaDocHttpClientSettings Settings
-        {
-            get { return settings; }
-            set
-            {
-                if (value == null) throw new ArgumentNullException("value");
-                settings = value;
-            }
         }
 
         public HttpClient HttpClient
@@ -88,33 +70,33 @@ namespace PandaDoc.Standard
             BearerToken = value;
         }
 
-        public async Task<PandaDocBearerToken> Login(string username, string password)
-        {
-            if (username == null) throw new ArgumentNullException("username");
-            if (password == null) throw new ArgumentNullException("password");
+        //public async Task<PandaDocBearerToken> Login(string username, string password)
+        //{
+        //    if (username == null) throw new ArgumentNullException("username");
+        //    if (password == null) throw new ArgumentNullException("password");
 
-            var values = new Dictionary<string, string>
-            {
-                {"grant_type", "password"},
-                {"username", username},
-                {"password", password},
-                {"client_id", settings.ClientId},
-                {"client_secret", settings.ClientSecret},
-                {"scope", "read write read+write"}
-            };
+        //    var values = new Dictionary<string, string>
+        //    {
+        //        {"grant_type", "password"},
+        //        {"username", username},
+        //        {"password", password},
+        //        {"client_id", settings.ClientId},
+        //        {"client_secret", settings.ClientSecret},
+        //        {"scope", "read write read+write"}
+        //    };
 
-            var content = new FormUrlEncodedContent(values);
+        //    var content = new FormUrlEncodedContent(values);
 
-            HttpResponseMessage httpResponse = await httpClient.PostAsync(settings.AuthUri + "oauth2/access_token", content);
+        //    HttpResponseMessage httpResponse = await httpClient.PostAsync(ESignConfig.PandaDocAuthUrl + "oauth2/access_token", content);
 
-            //PandaDocHttpResponse<PandaDocBearerToken> response = await httpResponse.ToPandaDocResponseAsync<PandaDocBearerToken>();
-            var response = await httpResponse.Content.ReadAsStringAsync();
-            return JsonConvert.DeserializeObject<PandaDocBearerToken>(response);
-        }
+        //    PandaDocHttpResponse<PandaDocBearerToken> response = await httpResponse.ToPandaDocResponseAsync<PandaDocBearerToken>();
+        //    var response = await httpResponse.Content.ReadAsStringAsync();
+        //    return JsonConvert.DeserializeObject<PandaDocBearerToken>(response);
+        //}
 
         public async Task<GetDocumentsResponse> GetDocuments()
         {
-            HttpResponseMessage httpResponse = await httpClient.GetAsync(settings.ApiUri + "public/v1/documents");
+            HttpResponseMessage httpResponse = await httpClient.GetAsync(ESignConfig.PandaDocApiUrl + "public/v1/documents");
 
             //PandaDocHttpResponse<GetDocumentsResponse> response = await httpResponse.ToPandaDocResponseAsync<GetDocumentsResponse>();
             var response = await httpResponse.Content.ReadAsStringAsync();
@@ -128,7 +110,7 @@ namespace PandaDoc.Standard
             request.AddHeader("Host", "api.pandadoc.com");
             request.AddHeader("Accept", "*/*");
             request.AddHeader("Content-Type", "multipart/form-data");
-            request.AddHeader("Authorization", "API-Key c6caae24740bb7bfffc0895f27bbf1ca7fe6bbe9");
+            request.AddHeader("Authorization", $"API-Key {ESignConfig.PandaDocApiKey}");
             request.AddHeader("content-type", "multipart/form-data");
 
             request.AddFileBytes("file", fileContent, "panda.pdf", "application/pdf");
@@ -142,9 +124,30 @@ namespace PandaDoc.Standard
             return new CreateDocumentResponse();
         }
 
+        public async Task<CreateDocumentResponse> CreateDocument(byte[] fileContent, string document)
+        {
+            var client = new RestClient(ESignConfig.PandaDocApiUrl + "public/v1/documents");
+            var request = new RestRequest(Method.POST);
+            request.AddHeader("Host", "api.pandadoc.com");
+            request.AddHeader("Accept", "*/*");
+            request.AddHeader("Content-Type", "multipart/form-data");
+            request.AddHeader("Authorization", $"API-Key {ESignConfig.PandaDocApiKey}");
+            request.AddHeader("content-type", "multipart/form-data");
+
+            request.AddFileBytes("file", fileContent, "panda.pdf", "application/pdf");
+            request.AddParameter("data", document);
+            request.AlwaysMultipartFormData = true;
+            IRestResponse response = client.Execute(request);
+            if (response.StatusCode == System.Net.HttpStatusCode.Created)
+            {
+                return JsonConvert.DeserializeObject<CreateDocumentResponse>(response.Content);
+            }
+            return new CreateDocumentResponse();
+        }
+
         public async Task<GetDocumentResponse> GetDocument(string uuid)
         {
-            var httpResponse = await httpClient.GetAsync(settings.ApiUri + "public/v1/documents/" + uuid);
+            var httpResponse = await httpClient.GetAsync(ESignConfig.PandaDocApiUrl + "public/v1/documents/" + uuid);
             //return JsonConvert.DeserializeObject<GetDocumentResponse>(httpResponse.Content.ToString());
             var response = await httpResponse.Content.ReadAsStringAsync();
             return JsonConvert.DeserializeObject<GetDocumentResponse>(response);
@@ -152,14 +155,17 @@ namespace PandaDoc.Standard
 
         public async Task<HttpResponseMessage> GetDocumentDetail(string uuid)
         {
-            return await httpClient.GetAsync(settings.ApiUri + "public/v1/documents/" + uuid);
+            //var client = new RestClient($"{ESignConfig.PandaDocApiUrl}public/v1/documents/{uuid}/details");
+            //var request = new RestRequest(Method.POST);
+            //request.AddHeader("Authorization", $"API-Key {AppData.PandaDocApiKey}");
+            return await httpClient.GetAsync($"{ESignConfig.PandaDocApiUrl}public/v1/documents/{uuid}/details");
         }
 
         public async Task<SendDocumentResponse> SendDocument(string uuid, SendDocumentRequest request)
         {
             HttpContent httpContent = new StringContent(JsonConvert.SerializeObject(request), UnicodeEncoding.UTF8, "application/json");
 
-            HttpResponseMessage httpResponse = await httpClient.PostAsync(settings.ApiUri + "public/v1/documents/" + uuid + "/send", httpContent);
+            HttpResponseMessage httpResponse = await httpClient.PostAsync(ESignConfig.PandaDocApiUrl + "public/v1/documents/" + uuid + "/send", httpContent);
 
             //PandaDocHttpResponse<SendDocumentResponse> response = await httpResponse.ToPandaDocResponseAsync<SendDocumentResponse>();
 
@@ -171,7 +177,7 @@ namespace PandaDoc.Standard
         {
             HttpContent httpContent = new StringContent(JsonConvert.SerializeObject(request), UnicodeEncoding.UTF8, "application/json");
 
-            HttpResponseMessage httpResponse = await httpClient.PostAsync(settings.ApiUri + "public/v1/documents/" + uuid + "/session", httpContent);
+            HttpResponseMessage httpResponse = await httpClient.PostAsync(ESignConfig.PandaDocApiUrl + "public/v1/documents/" + uuid + "/session", httpContent);
 
             // PandaDocHttpResponse<ShareDocumentResponse> response = await httpResponse.ToPandaDocResponseAsync<ShareDocumentResponse>();
             var response = await httpResponse.Content.ReadAsStringAsync();
@@ -181,7 +187,7 @@ namespace PandaDoc.Standard
 
         public async Task<PandaDocHttpResponse> DeleteDocument(string uuid)
         {
-            HttpResponseMessage httpResponse = await httpClient.DeleteAsync(settings.ApiUri + "public/v1/documents/" + uuid);
+            HttpResponseMessage httpResponse = await httpClient.DeleteAsync(ESignConfig.PandaDocApiUrl + "public/v1/documents/" + uuid);
 
             //PandaDocHttpResponse response = await httpResponse.ToPandaDocResponseAsync();
             var response = await httpResponse.Content.ReadAsStringAsync();

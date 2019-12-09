@@ -1,5 +1,6 @@
 ﻿using Esign.Client;
 using IdentityModel.Client;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using PandaDoc.Models.CreateDocument;
 using System;
@@ -31,35 +32,35 @@ namespace Client
             //}
             //var upload = esignApiClient.UploadDocument(fileContent, new CreateDocumentRequest());
             // discover endpoints from metadata
-            var client = new HttpClient();
+            //var client = new HttpClient();
 
-            var disco = client.GetDiscoveryDocumentAsync("http://localhost:5000").Result;
-            if (disco.IsError)
-            {
-                identity.InnerText = disco.Error;
-                return;
-            }
+            //var disco = client.GetDiscoveryDocumentAsync("http://localhost:5000").Result;
+            //if (disco.IsError)
+            //{
+            //    identity.InnerText = disco.Error;
+            //    return;
+            //}
 
-            // request token
-            var tokenResponse = client.RequestClientCredentialsTokenAsync(new ClientCredentialsTokenRequest
-            {
-                Address = disco.TokenEndpoint,
-                ClientId = "ipd",
-                ClientSecret = "secret",
-                Scope = "esign"
-            }).Result;
+            //// request token
+            //var tokenResponse = client.RequestClientCredentialsTokenAsync(new ClientCredentialsTokenRequest
+            //{
+            //    Address = disco.TokenEndpoint,
+            //    ClientId = "ipd",
+            //    ClientSecret = "secret",
+            //    Scope = "esign"
+            //}).Result;
 
-            if (tokenResponse.IsError)
-            {
-                identity.InnerText = tokenResponse.Error;
-                return;
-            }
+            //if (tokenResponse.IsError)
+            //{
+            //    identity.InnerText = tokenResponse.Error;
+            //    return;
+            //}
 
-            identity.InnerText = tokenResponse.Json.ToString();
-            Console.WriteLine("\n\n");
+            //identity.InnerText = tokenResponse.Json.ToString();
+            //Console.WriteLine("\n\n");
 
-            // call api
-            var apiClient = new HttpClient();
+            //// call api
+            //var apiClient = new HttpClient();
             //apiClient.SetBearerToken(tokenResponse.AccessToken);
 
             //var response = apiClient.GetAsync("https://localhost:44307/identity").Result;
@@ -73,10 +74,10 @@ namespace Client
             //    apiresult.InnerText = content;
             //}
             EsignApiClient esignClient = new EsignApiClient();
-            byte[] fileContent = File.ReadAllBytes("C:\\Users\\i81211\\Desktop\\panda.pdf");
+            byte[] fileContent = File.ReadAllBytes("D:\\panda.pdf");
             var docRequest = CreateDocumentRequest();
             var response = esignClient.UploadDocument(fileContent, docRequest);
-            apiresult.InnerText = response.ToString();
+            apiresult.InnerText = Convert.ToString(response);
         }
 
 

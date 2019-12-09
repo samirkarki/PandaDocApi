@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -18,10 +19,8 @@ namespace Esign.Api.Controllers
     public class HomeController : Controller
     {
         protected readonly string SampleDocUrl = "https://cdn2.hubspot.net/hubfs/2127247/public-templates/SamplePandaDocPdf_FieldTags.pdf";
-        private AppData appData;
-        public HomeController(IOptions<AppData> config)
+        public HomeController()
         {
-            appData = config.Value;
         }
 
         [Authorize]
@@ -81,6 +80,26 @@ namespace Esign.Api.Controllers
         }
 
         [HttpPost]
+        [Route("uploadfileWithJson")]
+        public async Task<HttpResponseMessage> Upload(IFormFile file, string createDocumentRequestJson)
+        {
+            byte[] fileContent;
+            if (file.Length > 0)
+            {
+                using (var ms = new MemoryStream())
+                {
+                    file.CopyTo(ms);
+                    fileContent = ms.ToArray();
+                }
+                var pandaDocHelper = new PandaDocHelper();
+                var response = await pandaDocHelper.CreateDocument(fileContent, createDocumentRequestJson);
+                return response;
+            }
+            else
+            return new HttpResponseMessage(System.Net.HttpStatusCode.PartialContent);
+        }
+
+        [HttpPost]
         [Route("uploadbytes")]
         public async Task<GetDocumentResponse> Upload(byte[] fileBytes, CreateDocumentRequest request)
         {
@@ -94,7 +113,7 @@ namespace Esign.Api.Controllers
             return response;
         }
 
-        [HttpPost]
+        [HttpGet]
         [Route("sharedocument")]
         public async Task<ShareDocumentResponse> Share(string documentId, string email)
         {
@@ -135,10 +154,9 @@ namespace Esign.Api.Controllers
 
         protected PandaDocHttpClient SetApiKey()
         {
-            var settings = new PandaDocHttpClientSettings();
-            var client = new PandaDocHttpClient(settings);
+            var client = new PandaDocHttpClient();
 
-            var bearerToken = new PandaDocBearerToken { ApiKey = appData.PandaDocApiKey };
+            var bearerToken = new PandaDocBearerToken { ApiKey = ESignConfig.PandaDocApiKey };
             client.SetBearerToken(bearerToken);
 
             return client;

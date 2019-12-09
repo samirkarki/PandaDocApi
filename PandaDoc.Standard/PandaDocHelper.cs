@@ -35,6 +35,28 @@ namespace PandaDoc.Standard
             }
         }
 
+        public async Task<HttpResponseMessage> CreateDocument(byte[] fileContent, string documentJson)
+        {
+            var sharedDocuments = new List<ShareDocumentResponse>();
+            using (var client = SetApiKey())
+            {
+                var response = await client.CreateDocument(fileContent, documentJson);
+                if (!string.IsNullOrEmpty(response.Uuid))
+                {
+                    var sendRequest = new SendDocumentRequest
+                    {
+                        Message = "Please sign this document"
+                    };
+                    var sendDocResponse = await client.SendDocument(response.Uuid, sendRequest);
+
+                    var detailResponse = await client.GetDocumentDetail(response.Uuid);
+                    return detailResponse;
+                }
+                else
+                    return null;
+            }
+        }
+
         public async Task<ShareDocumentResponse> ShareDocument(string documentId, string recipientEmail)
         {
             var shareRequest = new ShareDocumentRequest
@@ -107,8 +129,7 @@ namespace PandaDoc.Standard
 
         protected PandaDocHttpClient SetApiKey()
         {
-            var settings = new PandaDocHttpClientSettings();
-            var client = new PandaDocHttpClient(settings);
+            var client = new PandaDocHttpClient();
 
             var bearerToken = new PandaDocBearerToken { ApiKey = "c6caae24740bb7bfffc0895f27bbf1ca7fe6bbe9" };
             client.SetBearerToken(bearerToken);

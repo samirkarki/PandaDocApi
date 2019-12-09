@@ -71,23 +71,23 @@ namespace Esign.Client
 
         }
 
-        public CreateDocumentResponse UploadDocument(byte[] pdfBytes, CreateDocumentRequest document)
+        public dynamic UploadDocument(byte[] pdfBytes, CreateDocumentRequest document)
         {
-            var client = new RestClient($"{esignApiUrl}/uploadbytes");
+            var client = new RestClient($"{esignApiUrl}/uploadfileWithJson");
             var request = new RestRequest(Method.POST);
             request.AddHeader("Accept", "*/*");
             request.AddHeader("Content-Type", "multipart/form-data");
             request.AddHeader("Authorization", $"Bearer {accessToken}");
             request.AddHeader("content-type", "multipart/form-data");
 
-            request.AddFileBytes("fileBytes", pdfBytes, "panda.pdf", "application/pdf");
+            request.AddFileBytes("file", pdfBytes, "panda.pdf", "application/pdf");
             var json = JsonConvert.SerializeObject(document);
-            request.AddParameter("data", json);
+            request.AddParameter("createDocumentRequestJson", json);
             request.AlwaysMultipartFormData = true;
             IRestResponse response =  client.Execute(request);
-            if (response.StatusCode == System.Net.HttpStatusCode.Created)
+            if (response.StatusCode == System.Net.HttpStatusCode.OK)
             {
-                return JsonConvert.DeserializeObject<CreateDocumentResponse>(response.Content);
+                return JsonConvert.DeserializeObject<dynamic>(response.Content);
             }
             return new CreateDocumentResponse();
         }

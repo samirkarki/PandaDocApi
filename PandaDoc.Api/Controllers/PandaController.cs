@@ -40,6 +40,8 @@ namespace PandaDoc.Api.Controllers
         {
             var sharedDocuments = new List<ShareDocumentResponse>();
             CreateDocumentRequest request = CreateDocumentRequest();
+            if (string.IsNullOrEmpty(fileName))
+                fileName = "D:\\panda.pdf";
             byte[] fileContent = File.ReadAllBytes(fileName);
             var response = await pandaDocHelper.CreateDocument(fileContent, request);
             return response.Value;
