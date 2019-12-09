@@ -36,6 +36,8 @@ namespace Esign.Api
             ESignConfig.PandaDocApiKey = eSignConfig["PandaDocApiKey"];
             ESignConfig.PandaDocAuthUrl = eSignConfig["PandaDocAuthUrl"];
             ESignConfig.PandaDocApiUrl = eSignConfig["PandaDocApiUrl"];
+            ESignConfig.DocumentLifetime = Convert.ToInt32(eSignConfig["DocumentLifetime"]);
+
             IDServer.Url= idServer["Url"];
             IDServer.Audience= idServer["Audience"];
             

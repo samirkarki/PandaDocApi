@@ -1,4 +1,5 @@
-﻿using PandaDoc.Models.CreateDocument;
+﻿using Newtonsoft.Json;
+using PandaDoc.Models.CreateDocument;
 using PandaDoc.Models.GetDocument;
 using PandaDoc.Models.SendDocument;
 using System.Collections.Generic;
@@ -23,7 +24,8 @@ namespace PandaDoc.Standard
                 {
                     var sendRequest = new SendDocumentRequest
                     {
-                        Message = "Please sign this document"
+                        Message = "Please sign this document",
+                        Silent = request.DisableEmail
                     };
                     var sendDocResponse = await client.SendDocument(response.Uuid, sendRequest);
 
@@ -35,9 +37,9 @@ namespace PandaDoc.Standard
             }
         }
 
-        public async Task<HttpResponseMessage> CreateDocument(byte[] fileContent, string documentJson)
+        public async Task<dynamic> CreateDocument(byte[] fileContent, string documentJson)
         {
-            var sharedDocuments = new List<ShareDocumentResponse>();
+            var document = JsonConvert.DeserializeObject<CreateDocumentRequest>(documentJson);
             using (var client = SetApiKey())
             {
                 var response = await client.CreateDocument(fileContent, documentJson);
@@ -45,11 +47,12 @@ namespace PandaDoc.Standard
                 {
                     var sendRequest = new SendDocumentRequest
                     {
-                        Message = "Please sign this document"
+                        Message = "Please sign this document",
+                        Silent = document.DisableEmail
                     };
                     var sendDocResponse = await client.SendDocument(response.Uuid, sendRequest);
 
-                    var detailResponse = await client.GetDocumentDetail(response.Uuid);
+                    var detailResponse = client.GetDocumentDetail(response.Uuid);
                     return detailResponse;
                 }
                 else
@@ -57,13 +60,10 @@ namespace PandaDoc.Standard
             }
         }
 
-        public async Task<ShareDocumentResponse> ShareDocument(string documentId, string recipientEmail)
+        public async Task<ShareDocumentResponse> ShareDocument(string documentId, string shareDocumentRequest)
         {
-            var shareRequest = new ShareDocumentRequest
-            {
-                Recipient = recipientEmail,
-                LifeTime = 90000
-            };
+            var shareRequest = JsonConvert.DeserializeObject<ShareDocumentRequest>(shareDocumentRequest);
+            shareRequest.LifeTime = ESignConfig.DocumentLifetime;
             using (var client = SetApiKey())
             {
                 return await client.ShareDocument(documentId, shareRequest);
@@ -88,11 +88,11 @@ namespace PandaDoc.Standard
             }
         }
 
-        public async Task<HttpResponseMessage> GetDocumentDetail(string documentId)
+        public dynamic GetDocumentDetail(string documentId)
         {
             using (var client = SetApiKey())
             {
-                var response = await client.GetDocumentDetail(documentId);
+                var response = client.GetDocumentDetail(documentId);
                 return response;
             }
         }

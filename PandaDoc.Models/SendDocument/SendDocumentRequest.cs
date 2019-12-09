@@ -9,6 +9,7 @@ namespace PandaDoc.Models.SendDocument
     {
         [JsonProperty("message")]
         public string Message { get; set; }
+        public bool Silent { get; set; }
     }
 
     public class SendDocumentResponse

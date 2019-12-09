@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Configuration;
 using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
 using IdentityModel.Client;
 using Newtonsoft.Json;
 using PandaDoc.Models.CreateDocument;
 using PandaDoc.Models.GetDocuments;
+using PandaDoc.Models.SendDocument;
 using RestSharp;
 
 namespace Esign.Client
@@ -62,12 +64,13 @@ namespace Esign.Client
 
         }
 
-        public async Task<dynamic> GetDocuments()
+        public async Task<GetDocumentsResponse> GetDocuments()
         {
             HttpClient client = new HttpClient();
             client.SetBearerToken(accessToken);
-            var response = await client.GetAsync($"{esignApiUrl}/api/documents");
-            return JsonConvert.DeserializeObject<GetDocumentsResponse>(response.Content.ToString());
+            var response = await client.GetAsync($"{esignApiUrl}/documents");
+            var responseString = await response.Content.ReadAsStringAsync();
+            return JsonConvert.DeserializeObject<GetDocumentsResponse>(responseString);
 
         }
 
@@ -90,6 +93,20 @@ namespace Esign.Client
                 return JsonConvert.DeserializeObject<dynamic>(response.Content);
             }
             return new CreateDocumentResponse();
+        }
+
+        public async Task<dynamic> ShareDocument(string documentId, string recipientEmail)
+        {
+            HttpClient client = new HttpClient();
+            var shareRequest = new ShareDocumentRequest
+            {
+                Recipient = recipientEmail,
+            };
+            HttpContent httpContent = new StringContent(JsonConvert.SerializeObject(shareRequest), UnicodeEncoding.UTF8, "application/json");
+
+            client.SetBearerToken(accessToken);
+            var response = await client.PostAsync($"{esignApiUrl}/api/sharedocument/{documentId}", httpContent);
+            return JsonConvert.DeserializeObject<dynamic>(response.Content.ToString());
         }
     }
 }

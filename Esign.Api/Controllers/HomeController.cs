@@ -115,10 +115,10 @@ namespace Esign.Api.Controllers
 
         [HttpGet]
         [Route("sharedocument")]
-        public async Task<ShareDocumentResponse> Share(string documentId, string email)
+        public async Task<ShareDocumentResponse> Share(string documentId, string shareDocumentRequest)
         {
             var pandaDocHelper = new PandaDocHelper();
-            var response = await pandaDocHelper.ShareDocument(documentId, email);
+            var response = await pandaDocHelper.ShareDocument(documentId, shareDocumentRequest);
             return response;
         }
 

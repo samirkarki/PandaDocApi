@@ -96,7 +96,7 @@ namespace PandaDoc.Standard
 
         public async Task<GetDocumentsResponse> GetDocuments()
         {
-            HttpResponseMessage httpResponse = await httpClient.GetAsync(ESignConfig.PandaDocApiUrl + "public/v1/documents");
+            HttpResponseMessage httpResponse = await httpClient.GetAsync(ESignConfig.PandaDocApiUrl + "/public/v1/documents");
 
             //PandaDocHttpResponse<GetDocumentsResponse> response = await httpResponse.ToPandaDocResponseAsync<GetDocumentsResponse>();
             var response = await httpResponse.Content.ReadAsStringAsync();
@@ -137,7 +137,7 @@ namespace PandaDoc.Standard
             request.AddFileBytes("file", fileContent, "panda.pdf", "application/pdf");
             request.AddParameter("data", document);
             request.AlwaysMultipartFormData = true;
-            IRestResponse response = client.Execute(request);
+            var response = client.Execute(request);
             if (response.StatusCode == System.Net.HttpStatusCode.Created)
             {
                 return JsonConvert.DeserializeObject<CreateDocumentResponse>(response.Content);
@@ -153,12 +153,13 @@ namespace PandaDoc.Standard
             return JsonConvert.DeserializeObject<GetDocumentResponse>(response);
         }
 
-        public async Task<HttpResponseMessage> GetDocumentDetail(string uuid)
+        public dynamic GetDocumentDetail(string uuid)
         {
-            //var client = new RestClient($"{ESignConfig.PandaDocApiUrl}public/v1/documents/{uuid}/details");
-            //var request = new RestRequest(Method.POST);
-            //request.AddHeader("Authorization", $"API-Key {AppData.PandaDocApiKey}");
-            return await httpClient.GetAsync($"{ESignConfig.PandaDocApiUrl}public/v1/documents/{uuid}/details");
+            var client = new RestClient($"{ESignConfig.PandaDocApiUrl}public/v1/documents/{uuid}/details");
+            var request = new RestRequest(Method.POST);
+            request.AddHeader("Authorization", $"API-Key {ESignConfig.PandaDocApiKey}");
+            var response = client.Execute(request);
+            return JsonConvert.DeserializeObject<dynamic>(response.Content);
         }
 
         public async Task<SendDocumentResponse> SendDocument(string uuid, SendDocumentRequest request)

@@ -3,6 +3,7 @@ using IdentityModel.Client;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using PandaDoc.Models.CreateDocument;
+using PandaDoc.Models.SendDocument;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -73,11 +74,11 @@ namespace Client
             //    var content = response.Content.ReadAsStringAsync().Result;
             //    apiresult.InnerText = content;
             //}
+
             EsignApiClient esignClient = new EsignApiClient();
-            byte[] fileContent = File.ReadAllBytes("D:\\panda.pdf");
-            var docRequest = CreateDocumentRequest();
-            var response = esignClient.UploadDocument(fileContent, docRequest);
-            apiresult.InnerText = Convert.ToString(response);
+            var response = esignClient.GetDocuments().Result;
+            gv_documents.DataSource = response.Results;
+
         }
 
 
@@ -109,6 +110,21 @@ namespace Client
                     {"optId", new Field {Title = "Field 1"}}
                 }
             };
+        }
+
+        protected void btn_upload_Click(object sender, EventArgs e)
+        {
+            EsignApiClient esignClient = new EsignApiClient();
+            byte[] fileContent = File.ReadAllBytes("D:\\panda.pdf");
+            var docRequest = CreateDocumentRequest();
+            var response = esignClient.UploadDocument(fileContent, docRequest);
+            gv_documents.DataSource = response;
+        }
+
+        protected void btn_share_Click(object sender, EventArgs e)
+        {
+            EsignApiClient esignClient = new EsignApiClient();
+            var response = esignClient.ShareDocument(txt_documentid.Text, txt_email.Text);
         }
     }
 }

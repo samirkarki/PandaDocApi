@@ -43,5 +43,6 @@ namespace PandaDoc.Models.CreateDocument
 
         [JsonProperty("fields")]
         public Dictionary<string, Field> Fields { get; set; }
+        public bool DisableEmail { get; set; }
     }
 }

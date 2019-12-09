@@ -10,6 +10,7 @@ namespace PandaDoc.Standard
         public static string PandaDocApiKey;
         public static string PandaDocAuthUrl;
         public static string PandaDocApiUrl;
+        public static int DocumentLifetime;
     }
 
     public static class IDServer
