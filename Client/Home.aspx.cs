@@ -80,10 +80,15 @@ namespace Client
                 EsignApiClient esignClient = new EsignApiClient();
                 var response = esignClient.GetDocuments();
                 gv_documents.DataSource = response.Results;
+                gv_documents.DataBind();
             }
 
         }
 
+        protected void OnSelectedIndexChanged(object sender, EventArgs e)
+        {
+            txt_documentid.Text = gv_documents.SelectedRow.Cells[1].Text;
+        }
 
         private CreateDocumentRequest CreateDocumentRequest()
         {
@@ -128,8 +133,8 @@ namespace Client
         protected void btn_share_Click(object sender, EventArgs e)
         {
             EsignApiClient esignClient = new EsignApiClient();
-            var response = esignClient.ShareDocument(txt_documentid.Text, txt_email.Text).Result;
-            iframe_doc.Src = ConfigurationManager.AppSettings["PandadocIframeUrl"] + response.id;
+            var response = esignClient.ShareDocument(txt_documentid.Text, txt_email.Text);
+            iframe_doc.Src = ConfigurationManager.AppSettings["PandadocIframeUrl"] + response.Id;
 
         }
     }

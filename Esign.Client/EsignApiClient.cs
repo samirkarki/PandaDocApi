@@ -95,18 +95,12 @@ namespace Esign.Client
             return new CreateDocumentResponse();
         }
 
-        public dynamic ShareDocument(string documentId, string recipientEmail)
+        public ShareDocumentResponse ShareDocument(string documentId, string recipientEmail)
         {
             HttpClient client = new HttpClient();
-            var shareRequest = new ShareDocumentRequest
-            {
-                Recipient = recipientEmail
-            };
-            HttpContent httpContent = new StringContent(JsonConvert.SerializeObject(shareRequest), UnicodeEncoding.UTF8, "application/json");
-
             client.SetBearerToken(accessToken);
             var response = client.GetAsync($"{esignApiUrl}/sharedocument?documentId={documentId}&recipientEmail={recipientEmail}").Result;
-            return JsonConvert.DeserializeObject<dynamic>(response.Content.ReadAsStringAsync().Result);
+            return JsonConvert.DeserializeObject<ShareDocumentResponse>(response.Content.ReadAsStringAsync().Result);
         }
     }
 }
